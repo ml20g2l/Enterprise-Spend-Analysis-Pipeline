@@ -1,0 +1,76 @@
+{
+  "approval_sla_breach_count": 1919,
+  "contract_status_counts": {
+    "compliant_alternate_master_match": 160,
+    "compliant_master_match": 507,
+    "compliant_submitted_contract": 2993,
+    "no_active_matching_contract": 500,
+    "non_compliant_category_mismatch": 470,
+    "non_compliant_outside_validity": 370
+  },
+  "currency_counts": {
+    "EUR": 1250,
+    "GBP": 3000,
+    "USD": 750
+  },
+  "dataset_counts": {
+    "approval_cycles": 5000,
+    "approval_events": 20000,
+    "contracts": 200,
+    "departments": 12,
+    "expenses": 5000,
+    "quarantined_records": 0,
+    "vendor_satisfaction_responses": 300,
+    "vendors": 125
+  },
+  "files": {
+    "data/processed/synthetic_approval_cycles.csv": {
+      "bytes": 1306882,
+      "sha256": "3b621edf7b1f89dca1edc9069be8ff5f64954af2015c029324233fb7999ca782"
+    },
+    "data/processed/synthetic_expenses_gbp.csv": {
+      "bytes": 1891196,
+      "sha256": "3d21c280a331383e9b56564e015ac9c4250cc71e8034f738b36c5255299639ae"
+    },
+    "data/raw/fx_rates/frankfurter_v2_EUR_GBP_2025-02-19_2026-02-28.json": {
+      "bytes": 42261,
+      "sha256": "d2c03f3fece6e7347df10ddac40f73a7a2197b234e7c846064173d6f61e0625e"
+    },
+    "data/raw/fx_rates/frankfurter_v2_USD_GBP_2025-02-19_2026-02-28.json": {
+      "bytes": 42264,
+      "sha256": "ceac75ba58e05346a0c3577769dd4ee7afd0a58aa3f2e6752c775a8b434542b1"
+    },
+    "data/raw/synthetic/approval_events.jsonl": {
+      "bytes": 7445000,
+      "sha256": "505fe85bc83add97fc67b0b01d5ede3d52f691302391afb9546d8a08ebe5d0cd"
+    },
+    "data/raw/synthetic/contracts.csv": {
+      "bytes": 39278,
+      "sha256": "7ba8517e53d5089e1d5e7f4bc187a4d48383caff3dda8c517b5cea8df644cd91"
+    },
+    "data/raw/synthetic/departments.csv": {
+      "bytes": 1907,
+      "sha256": "5aa485270df5bdb00c94c6b6ef1ce38d07817047d4e0aaa88fc57e1ecb34385c"
+    },
+    "data/raw/synthetic/expenses.csv": {
+      "bytes": 1250690,
+      "sha256": "11eeabdeea26a2996bcd801ff12c712b3b95faffb14f4409c557eaec6589ec75"
+    },
+    "data/raw/synthetic/vendor_satisfaction.csv": {
+      "bytes": 51145,
+      "sha256": "60deaaa29bc001826180b3a1821f1068d6c49fffa6cd8e659978f441eea750b3"
+    },
+    "data/raw/synthetic/vendors.csv": {
+      "bytes": 25395,
+      "sha256": "6929183049d8164f72a7845f2cfdfee6bccbd535edf968e67ea60ca12a2b5322"
+    }
+  },
+  "generation_run_id": "7c70b412254bf00e3d9e880130033cc367f5404b4236801325aa4a238efbf1a9",
+  "generation_version": "1.0.0",
+  "is_synthetic": true,
+  "period_end": "2026-02-28",
+  "period_start": "2025-03-01",
+  "random_seed": 20260923,
+  "record_origin": "synthetic_fictional_company",
+  "scenario_id": "fictional_corporate_spend_v1"
+}

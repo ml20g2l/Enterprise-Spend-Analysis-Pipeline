@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.venv-dbt/
+.env
+airflow/.env
+airflow/logs/
+reports/airflow/runs/
+
+# dbt runtime artefacts are reproducible and may contain local paths.
+dbt/logs/
+dbt/target/
+dbt/dbt_packages/
+dbt/.user.yml
+dbt_packages/
+.DS_Store
+
+# Generated profiling outputs can be reproduced from the preserved raw files.
+# They remain unignored for this portfolio phase so evidence can be reviewed.

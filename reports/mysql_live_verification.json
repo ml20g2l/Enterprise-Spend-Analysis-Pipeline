@@ -1,0 +1,317 @@
+{
+  "checks": [
+    {
+      "actual": 12,
+      "check": "row_count_raw_synthetic_department",
+      "expected": 12,
+      "status": "PASS"
+    },
+    {
+      "actual": 125,
+      "check": "row_count_raw_synthetic_vendor",
+      "expected": 125,
+      "status": "PASS"
+    },
+    {
+      "actual": 200,
+      "check": "row_count_raw_synthetic_contract",
+      "expected": 200,
+      "status": "PASS"
+    },
+    {
+      "actual": 5000,
+      "check": "row_count_raw_synthetic_expense",
+      "expected": 5000,
+      "status": "PASS"
+    },
+    {
+      "actual": 20000,
+      "check": "row_count_raw_synthetic_approval_event",
+      "expected": 20000,
+      "status": "PASS"
+    },
+    {
+      "actual": 300,
+      "check": "row_count_raw_synthetic_vendor_satisfaction",
+      "expected": 300,
+      "status": "PASS"
+    },
+    {
+      "actual": 5000,
+      "check": "row_count_fact_synthetic_spend",
+      "expected": 5000,
+      "status": "PASS"
+    },
+    {
+      "actual": 5000,
+      "check": "row_count_fact_synthetic_approval",
+      "expected": 5000,
+      "status": "PASS"
+    },
+    {
+      "actual": 750,
+      "check": "row_count_raw_fx_rate",
+      "expected": 750,
+      "status": "PASS"
+    },
+    {
+      "actual": 1,
+      "check": "row_count_pipeline_load_run",
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "EUR": {
+          "amount_gbp": "269481892.86",
+          "count": 1250,
+          "original_amount": "312591016.58"
+        },
+        "GBP": {
+          "amount_gbp": "753145670.04",
+          "count": 3000,
+          "original_amount": "753145670.04"
+        },
+        "USD": {
+          "amount_gbp": "138309075.73",
+          "count": 750,
+          "original_amount": "184759495.49"
+        }
+      },
+      "check": "currency_totals",
+      "expected": {
+        "EUR": {
+          "amount_gbp": "269481892.86",
+          "count": 1250,
+          "original_amount": "312591016.58"
+        },
+        "GBP": {
+          "amount_gbp": "753145670.04",
+          "count": 3000,
+          "original_amount": "753145670.04"
+        },
+        "USD": {
+          "amount_gbp": "138309075.73",
+          "count": 750,
+          "original_amount": "184759495.49"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "actual": "1160936638.63",
+      "check": "total_amount_gbp",
+      "expected": "1160936638.63",
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check": "fx_conversion",
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check": "raw_expense_to_fact_completeness",
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check": "fact_to_raw_expense_integrity",
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check": "approval_event_sequence",
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check": "approval_fact_completeness",
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "fact_synthetic_approval": 5000,
+        "fact_synthetic_spend": 5000,
+        "pipeline_load_run": 1,
+        "raw_fx_rate": 750,
+        "raw_synthetic_approval_event": 20000,
+        "raw_synthetic_contract": 200,
+        "raw_synthetic_department": 12,
+        "raw_synthetic_expense": 5000,
+        "raw_synthetic_vendor": 125,
+        "raw_synthetic_vendor_satisfaction": 300
+      },
+      "check": "second_run_row_counts_unchanged",
+      "expected": {
+        "fact_synthetic_approval": 5000,
+        "fact_synthetic_spend": 5000,
+        "pipeline_load_run": 1,
+        "raw_fx_rate": 750,
+        "raw_synthetic_approval_event": 20000,
+        "raw_synthetic_contract": 200,
+        "raw_synthetic_department": 12,
+        "raw_synthetic_expense": 5000,
+        "raw_synthetic_vendor": 125,
+        "raw_synthetic_vendor_satisfaction": 300
+      },
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "currency": {
+          "EUR": {
+            "amount_gbp": "269481892.86",
+            "count": 1250,
+            "original_amount": "312591016.58"
+          },
+          "GBP": {
+            "amount_gbp": "753145670.04",
+            "count": 3000,
+            "original_amount": "753145670.04"
+          },
+          "USD": {
+            "amount_gbp": "138309075.73",
+            "count": 750,
+            "original_amount": "184759495.49"
+          }
+        },
+        "total_amount_gbp": "1160936638.63"
+      },
+      "check": "second_run_totals_unchanged",
+      "expected": {
+        "currency": {
+          "EUR": {
+            "amount_gbp": "269481892.86",
+            "count": 1250,
+            "original_amount": "312591016.58"
+          },
+          "GBP": {
+            "amount_gbp": "753145670.04",
+            "count": 3000,
+            "original_amount": "753145670.04"
+          },
+          "USD": {
+            "amount_gbp": "138309075.73",
+            "count": 750,
+            "original_amount": "184759495.49"
+          }
+        },
+        "total_amount_gbp": "1160936638.63"
+      },
+      "status": "PASS"
+    }
+  ],
+  "checks_failed": 0,
+  "checks_passed": 19,
+  "connection": {
+    "database": "enterprise_spend",
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "spend_app"
+  },
+  "ddl_executed": false,
+  "first_load_counts": {
+    "fact_synthetic_approval": 5000,
+    "fact_synthetic_spend": 5000,
+    "pipeline_load_run": 1,
+    "raw_fx_rate": 750,
+    "raw_synthetic_approval_event": 20000,
+    "raw_synthetic_contract": 200,
+    "raw_synthetic_department": 12,
+    "raw_synthetic_expense": 5000,
+    "raw_synthetic_vendor": 125,
+    "raw_synthetic_vendor_satisfaction": 300
+  },
+  "first_load_totals": {
+    "currency": {
+      "EUR": {
+        "amount_gbp": "269481892.86",
+        "count": 1250,
+        "original_amount": "312591016.58"
+      },
+      "GBP": {
+        "amount_gbp": "753145670.04",
+        "count": 3000,
+        "original_amount": "753145670.04"
+      },
+      "USD": {
+        "amount_gbp": "138309075.73",
+        "count": 750,
+        "original_amount": "184759495.49"
+      }
+    },
+    "total_amount_gbp": "1160936638.63"
+  },
+  "idempotency_verified": true,
+  "pre_load_counts": {
+    "fact_synthetic_approval": 0,
+    "fact_synthetic_spend": 0,
+    "pipeline_load_run": 0,
+    "raw_fx_rate": 0,
+    "raw_synthetic_approval_event": 0,
+    "raw_synthetic_contract": 0,
+    "raw_synthetic_department": 0,
+    "raw_synthetic_expense": 0,
+    "raw_synthetic_vendor": 0,
+    "raw_synthetic_vendor_satisfaction": 0
+  },
+  "second_load_counts": {
+    "fact_synthetic_approval": 5000,
+    "fact_synthetic_spend": 5000,
+    "pipeline_load_run": 1,
+    "raw_fx_rate": 750,
+    "raw_synthetic_approval_event": 20000,
+    "raw_synthetic_contract": 200,
+    "raw_synthetic_department": 12,
+    "raw_synthetic_expense": 5000,
+    "raw_synthetic_vendor": 125,
+    "raw_synthetic_vendor_satisfaction": 300
+  },
+  "second_load_totals": {
+    "currency": {
+      "EUR": {
+        "amount_gbp": "269481892.86",
+        "count": 1250,
+        "original_amount": "312591016.58"
+      },
+      "GBP": {
+        "amount_gbp": "753145670.04",
+        "count": 3000,
+        "original_amount": "753145670.04"
+      },
+      "USD": {
+        "amount_gbp": "138309075.73",
+        "count": 750,
+        "original_amount": "184759495.49"
+      }
+    },
+    "total_amount_gbp": "1160936638.63"
+  },
+  "server_version": "8.0.46",
+  "source_totals": {
+    "currency": {
+      "EUR": {
+        "amount_gbp": "269481892.86",
+        "count": 1250,
+        "original_amount": "312591016.58"
+      },
+      "GBP": {
+        "amount_gbp": "753145670.04",
+        "count": 3000,
+        "original_amount": "753145670.04"
+      },
+      "USD": {
+        "amount_gbp": "138309075.73",
+        "count": 750,
+        "original_amount": "184759495.49"
+      }
+    },
+    "total_amount_gbp": "1160936638.63"
+  }
+}

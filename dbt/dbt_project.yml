@@ -1,0 +1,28 @@
+name: enterprise_spend
+version: 1.0.0
+config-version: 2
+profile: enterprise_spend
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  enterprise_spend:
+    staging:
+      +materialized: view
+      +tags: ["synthetic", "staging"]
+    intermediate:
+      +materialized: view
+      +tags: ["synthetic", "intermediate"]
+    marts:
+      +materialized: table
+      +tags: ["synthetic", "mart"]
+
+vars:
+  approval_sla_hours: 72
+  expected_synthetic_expense_count: 5000
+  expected_approval_event_count: 20000
+  expected_amount_gbp: 1160936638.63

@@ -1,0 +1,2259 @@
+{
+  "api_version": "v2",
+  "endpoint": "https://api.frankfurter.dev/v2/rates?base=EUR&quotes=GBP&from=2025-02-19&to=2026-02-28",
+  "rate_semantics": "1 EUR equals rate GBP",
+  "rates": [
+    {
+      "base": "EUR",
+      "date": "2025-02-19",
+      "quote": "GBP",
+      "rate": 0.82898
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-20",
+      "quote": "GBP",
+      "rate": 0.82839
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-21",
+      "quote": "GBP",
+      "rate": 0.82765
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-22",
+      "quote": "GBP",
+      "rate": 0.82767
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-23",
+      "quote": "GBP",
+      "rate": 0.82769
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-24",
+      "quote": "GBP",
+      "rate": 0.82794
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-25",
+      "quote": "GBP",
+      "rate": 0.82891
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-26",
+      "quote": "GBP",
+      "rate": 0.829
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-27",
+      "quote": "GBP",
+      "rate": 0.82729
+    },
+    {
+      "base": "EUR",
+      "date": "2025-02-28",
+      "quote": "GBP",
+      "rate": 0.82585
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-01",
+      "quote": "GBP",
+      "rate": 0.82573
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-02",
+      "quote": "GBP",
+      "rate": 0.82555
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-03",
+      "quote": "GBP",
+      "rate": 0.8251
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-04",
+      "quote": "GBP",
+      "rate": 0.8264
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-05",
+      "quote": "GBP",
+      "rate": 0.83129
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-06",
+      "quote": "GBP",
+      "rate": 0.83667
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-07",
+      "quote": "GBP",
+      "rate": 0.83867
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-08",
+      "quote": "GBP",
+      "rate": 0.83876
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-09",
+      "quote": "GBP",
+      "rate": 0.83881
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-10",
+      "quote": "GBP",
+      "rate": 0.83899
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-11",
+      "quote": "GBP",
+      "rate": 0.84185
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-12",
+      "quote": "GBP",
+      "rate": 0.84252
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-13",
+      "quote": "GBP",
+      "rate": 0.84011
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-14",
+      "quote": "GBP",
+      "rate": 0.83857
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-15",
+      "quote": "GBP",
+      "rate": 0.83881
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-16",
+      "quote": "GBP",
+      "rate": 0.83895
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-17",
+      "quote": "GBP",
+      "rate": 0.84076
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-18",
+      "quote": "GBP",
+      "rate": 0.84001
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-19",
+      "quote": "GBP",
+      "rate": 0.84053
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-20",
+      "quote": "GBP",
+      "rate": 0.83832
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-21",
+      "quote": "GBP",
+      "rate": 0.83783
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-22",
+      "quote": "GBP",
+      "rate": 0.83786
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-23",
+      "quote": "GBP",
+      "rate": 0.83775
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-24",
+      "quote": "GBP",
+      "rate": 0.83697
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-25",
+      "quote": "GBP",
+      "rate": 0.83561
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-26",
+      "quote": "GBP",
+      "rate": 0.83542
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-27",
+      "quote": "GBP",
+      "rate": 0.83339
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-28",
+      "quote": "GBP",
+      "rate": 0.83322
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-29",
+      "quote": "GBP",
+      "rate": 0.83328
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-30",
+      "quote": "GBP",
+      "rate": 0.83328
+    },
+    {
+      "base": "EUR",
+      "date": "2025-03-31",
+      "quote": "GBP",
+      "rate": 0.83449
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-01",
+      "quote": "GBP",
+      "rate": 0.83584
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-02",
+      "quote": "GBP",
+      "rate": 0.83523
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-03",
+      "quote": "GBP",
+      "rate": 0.83727
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-04",
+      "quote": "GBP",
+      "rate": 0.84391
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-05",
+      "quote": "GBP",
+      "rate": 0.84485
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-06",
+      "quote": "GBP",
+      "rate": 0.84549
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-07",
+      "quote": "GBP",
+      "rate": 0.85147
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-08",
+      "quote": "GBP",
+      "rate": 0.85513
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-09",
+      "quote": "GBP",
+      "rate": 0.85944
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-10",
+      "quote": "GBP",
+      "rate": 0.85853
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-11",
+      "quote": "GBP",
+      "rate": 0.86394
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-12",
+      "quote": "GBP",
+      "rate": 0.86504
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-13",
+      "quote": "GBP",
+      "rate": 0.8658
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-14",
+      "quote": "GBP",
+      "rate": 0.86526
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-15",
+      "quote": "GBP",
+      "rate": 0.85919
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-16",
+      "quote": "GBP",
+      "rate": 0.85607
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-17",
+      "quote": "GBP",
+      "rate": 0.85798
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-18",
+      "quote": "GBP",
+      "rate": 0.85784
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-19",
+      "quote": "GBP",
+      "rate": 0.85775
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-20",
+      "quote": "GBP",
+      "rate": 0.85765
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-21",
+      "quote": "GBP",
+      "rate": 0.85887
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-22",
+      "quote": "GBP",
+      "rate": 0.86
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-23",
+      "quote": "GBP",
+      "rate": 0.85709
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-24",
+      "quote": "GBP",
+      "rate": 0.85487
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-25",
+      "quote": "GBP",
+      "rate": 0.85348
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-26",
+      "quote": "GBP",
+      "rate": 0.8533
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-27",
+      "quote": "GBP",
+      "rate": 0.85321
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-28",
+      "quote": "GBP",
+      "rate": 0.85233
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-29",
+      "quote": "GBP",
+      "rate": 0.84966
+    },
+    {
+      "base": "EUR",
+      "date": "2025-04-30",
+      "quote": "GBP",
+      "rate": 0.85041
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-01",
+      "quote": "GBP",
+      "rate": 0.84991
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-02",
+      "quote": "GBP",
+      "rate": 0.85063
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-03",
+      "quote": "GBP",
+      "rate": 0.85081
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-04",
+      "quote": "GBP",
+      "rate": 0.85089
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-05",
+      "quote": "GBP",
+      "rate": 0.85216
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-06",
+      "quote": "GBP",
+      "rate": 0.85038
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-07",
+      "quote": "GBP",
+      "rate": 0.84965
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-08",
+      "quote": "GBP",
+      "rate": 0.84973
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-09",
+      "quote": "GBP",
+      "rate": 0.84788
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-10",
+      "quote": "GBP",
+      "rate": 0.84783
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-11",
+      "quote": "GBP",
+      "rate": 0.84754
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-12",
+      "quote": "GBP",
+      "rate": 0.84603
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-13",
+      "quote": "GBP",
+      "rate": 0.84167
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-14",
+      "quote": "GBP",
+      "rate": 0.84128
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-15",
+      "quote": "GBP",
+      "rate": 0.84351
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-16",
+      "quote": "GBP",
+      "rate": 0.84227
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-17",
+      "quote": "GBP",
+      "rate": 0.84223
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-18",
+      "quote": "GBP",
+      "rate": 0.84212
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-19",
+      "quote": "GBP",
+      "rate": 0.84209
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-20",
+      "quote": "GBP",
+      "rate": 0.8417
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-21",
+      "quote": "GBP",
+      "rate": 0.84369
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-22",
+      "quote": "GBP",
+      "rate": 0.84304
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-23",
+      "quote": "GBP",
+      "rate": 0.84033
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-24",
+      "quote": "GBP",
+      "rate": 0.84008
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-25",
+      "quote": "GBP",
+      "rate": 0.83982
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-26",
+      "quote": "GBP",
+      "rate": 0.84009
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-27",
+      "quote": "GBP",
+      "rate": 0.83927
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-28",
+      "quote": "GBP",
+      "rate": 0.83955
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-29",
+      "quote": "GBP",
+      "rate": 0.83866
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-30",
+      "quote": "GBP",
+      "rate": 0.8406
+    },
+    {
+      "base": "EUR",
+      "date": "2025-05-31",
+      "quote": "GBP",
+      "rate": 0.84083
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-01",
+      "quote": "GBP",
+      "rate": 0.84119
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-02",
+      "quote": "GBP",
+      "rate": 0.84285
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-03",
+      "quote": "GBP",
+      "rate": 0.84367
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-04",
+      "quote": "GBP",
+      "rate": 0.84208
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-05",
+      "quote": "GBP",
+      "rate": 0.84165
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-06",
+      "quote": "GBP",
+      "rate": 0.84218
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-07",
+      "quote": "GBP",
+      "rate": 0.84222
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-08",
+      "quote": "GBP",
+      "rate": 0.84224
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-09",
+      "quote": "GBP",
+      "rate": 0.84166
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-10",
+      "quote": "GBP",
+      "rate": 0.844
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-11",
+      "quote": "GBP",
+      "rate": 0.84673
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-12",
+      "quote": "GBP",
+      "rate": 0.84907
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-13",
+      "quote": "GBP",
+      "rate": 0.85077
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-14",
+      "quote": "GBP",
+      "rate": 0.8507
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-15",
+      "quote": "GBP",
+      "rate": 0.85078
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-16",
+      "quote": "GBP",
+      "rate": 0.85073
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-17",
+      "quote": "GBP",
+      "rate": 0.85167
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-18",
+      "quote": "GBP",
+      "rate": 0.85397
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-19",
+      "quote": "GBP",
+      "rate": 0.8543
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-20",
+      "quote": "GBP",
+      "rate": 0.85422
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-21",
+      "quote": "GBP",
+      "rate": 0.85429
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-22",
+      "quote": "GBP",
+      "rate": 0.85454
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-23",
+      "quote": "GBP",
+      "rate": 0.85612
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-24",
+      "quote": "GBP",
+      "rate": 0.85484
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-25",
+      "quote": "GBP",
+      "rate": 0.85245
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-26",
+      "quote": "GBP",
+      "rate": 0.85242
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-27",
+      "quote": "GBP",
+      "rate": 0.85261
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-28",
+      "quote": "GBP",
+      "rate": 0.85257
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-29",
+      "quote": "GBP",
+      "rate": 0.8526
+    },
+    {
+      "base": "EUR",
+      "date": "2025-06-30",
+      "quote": "GBP",
+      "rate": 0.85459
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-01",
+      "quote": "GBP",
+      "rate": 0.8567
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-02",
+      "quote": "GBP",
+      "rate": 0.85897
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-03",
+      "quote": "GBP",
+      "rate": 0.86195
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-04",
+      "quote": "GBP",
+      "rate": 0.86137
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-05",
+      "quote": "GBP",
+      "rate": 0.86136
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-06",
+      "quote": "GBP",
+      "rate": 0.86133
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-07",
+      "quote": "GBP",
+      "rate": 0.8626
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-08",
+      "quote": "GBP",
+      "rate": 0.86215
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-09",
+      "quote": "GBP",
+      "rate": 0.86263
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-10",
+      "quote": "GBP",
+      "rate": 0.86225
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-11",
+      "quote": "GBP",
+      "rate": 0.86322
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-12",
+      "quote": "GBP",
+      "rate": 0.86347
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-13",
+      "quote": "GBP",
+      "rate": 0.86369
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-14",
+      "quote": "GBP",
+      "rate": 0.86602
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-15",
+      "quote": "GBP",
+      "rate": 0.868
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-16",
+      "quote": "GBP",
+      "rate": 0.86709
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-17",
+      "quote": "GBP",
+      "rate": 0.8658
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-18",
+      "quote": "GBP",
+      "rate": 0.86577
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-19",
+      "quote": "GBP",
+      "rate": 0.86587
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-20",
+      "quote": "GBP",
+      "rate": 0.8659
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-21",
+      "quote": "GBP",
+      "rate": 0.86562
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-22",
+      "quote": "GBP",
+      "rate": 0.86707
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-23",
+      "quote": "GBP",
+      "rate": 0.86706
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-24",
+      "quote": "GBP",
+      "rate": 0.86658
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-25",
+      "quote": "GBP",
+      "rate": 0.86999
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-26",
+      "quote": "GBP",
+      "rate": 0.87029
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-27",
+      "quote": "GBP",
+      "rate": 0.87068
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-28",
+      "quote": "GBP",
+      "rate": 0.87103
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-29",
+      "quote": "GBP",
+      "rate": 0.86694
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-30",
+      "quote": "GBP",
+      "rate": 0.86457
+    },
+    {
+      "base": "EUR",
+      "date": "2025-07-31",
+      "quote": "GBP",
+      "rate": 0.86376
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-01",
+      "quote": "GBP",
+      "rate": 0.86555
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-02",
+      "quote": "GBP",
+      "rate": 0.86589
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-03",
+      "quote": "GBP",
+      "rate": 0.8664
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-04",
+      "quote": "GBP",
+      "rate": 0.86901
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-05",
+      "quote": "GBP",
+      "rate": 0.86997
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-06",
+      "quote": "GBP",
+      "rate": 0.87002
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-07",
+      "quote": "GBP",
+      "rate": 0.87009
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-08",
+      "quote": "GBP",
+      "rate": 0.86841
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-09",
+      "quote": "GBP",
+      "rate": 0.86816
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-10",
+      "quote": "GBP",
+      "rate": 0.86784
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-11",
+      "quote": "GBP",
+      "rate": 0.86603
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-12",
+      "quote": "GBP",
+      "rate": 0.86379
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-13",
+      "quote": "GBP",
+      "rate": 0.86327
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-14",
+      "quote": "GBP",
+      "rate": 0.86131
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-15",
+      "quote": "GBP",
+      "rate": 0.86101
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-16",
+      "quote": "GBP",
+      "rate": 0.86117
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-17",
+      "quote": "GBP",
+      "rate": 0.86111
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-18",
+      "quote": "GBP",
+      "rate": 0.8631
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-19",
+      "quote": "GBP",
+      "rate": 0.86348
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-20",
+      "quote": "GBP",
+      "rate": 0.86316
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-21",
+      "quote": "GBP",
+      "rate": 0.86453
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-22",
+      "quote": "GBP",
+      "rate": 0.86482
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-23",
+      "quote": "GBP",
+      "rate": 0.86485
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-24",
+      "quote": "GBP",
+      "rate": 0.86478
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-25",
+      "quote": "GBP",
+      "rate": 0.86594
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-26",
+      "quote": "GBP",
+      "rate": 0.86443
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-27",
+      "quote": "GBP",
+      "rate": 0.86324
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-28",
+      "quote": "GBP",
+      "rate": 0.86286
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-29",
+      "quote": "GBP",
+      "rate": 0.86462
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-30",
+      "quote": "GBP",
+      "rate": 0.86495
+    },
+    {
+      "base": "EUR",
+      "date": "2025-08-31",
+      "quote": "GBP",
+      "rate": 0.865
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-01",
+      "quote": "GBP",
+      "rate": 0.86551
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-02",
+      "quote": "GBP",
+      "rate": 0.86675
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-03",
+      "quote": "GBP",
+      "rate": 0.86899
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-04",
+      "quote": "GBP",
+      "rate": 0.86727
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-05",
+      "quote": "GBP",
+      "rate": 0.86711
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-06",
+      "quote": "GBP",
+      "rate": 0.86722
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-07",
+      "quote": "GBP",
+      "rate": 0.86716
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-08",
+      "quote": "GBP",
+      "rate": 0.86771
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-09",
+      "quote": "GBP",
+      "rate": 0.86695
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-10",
+      "quote": "GBP",
+      "rate": 0.86512
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-11",
+      "quote": "GBP",
+      "rate": 0.86537
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-12",
+      "quote": "GBP",
+      "rate": 0.86478
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-13",
+      "quote": "GBP",
+      "rate": 0.86484
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-14",
+      "quote": "GBP",
+      "rate": 0.86483
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-15",
+      "quote": "GBP",
+      "rate": 0.86473
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-16",
+      "quote": "GBP",
+      "rate": 0.86562
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-17",
+      "quote": "GBP",
+      "rate": 0.86735
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-18",
+      "quote": "GBP",
+      "rate": 0.86728
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-19",
+      "quote": "GBP",
+      "rate": 0.86902
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-20",
+      "quote": "GBP",
+      "rate": 0.86923
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-21",
+      "quote": "GBP",
+      "rate": 0.86955
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-22",
+      "quote": "GBP",
+      "rate": 0.87184
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-23",
+      "quote": "GBP",
+      "rate": 0.87281
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-24",
+      "quote": "GBP",
+      "rate": 0.87293
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-25",
+      "quote": "GBP",
+      "rate": 0.87334
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-26",
+      "quote": "GBP",
+      "rate": 0.87323
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-27",
+      "quote": "GBP",
+      "rate": 0.87325
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-28",
+      "quote": "GBP",
+      "rate": 0.87314
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-29",
+      "quote": "GBP",
+      "rate": 0.87242
+    },
+    {
+      "base": "EUR",
+      "date": "2025-09-30",
+      "quote": "GBP",
+      "rate": 0.87284
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-01",
+      "quote": "GBP",
+      "rate": 0.87211
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-02",
+      "quote": "GBP",
+      "rate": 0.87096
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-03",
+      "quote": "GBP",
+      "rate": 0.87164
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-04",
+      "quote": "GBP",
+      "rate": 0.87166
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-05",
+      "quote": "GBP",
+      "rate": 0.87162
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-06",
+      "quote": "GBP",
+      "rate": 0.8701
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-07",
+      "quote": "GBP",
+      "rate": 0.86887
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-08",
+      "quote": "GBP",
+      "rate": 0.86819
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-09",
+      "quote": "GBP",
+      "rate": 0.86816
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-10",
+      "quote": "GBP",
+      "rate": 0.8696
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-11",
+      "quote": "GBP",
+      "rate": 0.86976
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-12",
+      "quote": "GBP",
+      "rate": 0.8699
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-13",
+      "quote": "GBP",
+      "rate": 0.86973
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-14",
+      "quote": "GBP",
+      "rate": 0.86905
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-15",
+      "quote": "GBP",
+      "rate": 0.87037
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-16",
+      "quote": "GBP",
+      "rate": 0.86892
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-17",
+      "quote": "GBP",
+      "rate": 0.86922
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-18",
+      "quote": "GBP",
+      "rate": 0.86943
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-19",
+      "quote": "GBP",
+      "rate": 0.86938
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-20",
+      "quote": "GBP",
+      "rate": 0.86932
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-21",
+      "quote": "GBP",
+      "rate": 0.86836
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-22",
+      "quote": "GBP",
+      "rate": 0.8687
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-23",
+      "quote": "GBP",
+      "rate": 0.86941
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-24",
+      "quote": "GBP",
+      "rate": 0.87086
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-25",
+      "quote": "GBP",
+      "rate": 0.87116
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-26",
+      "quote": "GBP",
+      "rate": 0.87141
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-27",
+      "quote": "GBP",
+      "rate": 0.87216
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-28",
+      "quote": "GBP",
+      "rate": 0.87381
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-29",
+      "quote": "GBP",
+      "rate": 0.87779
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-30",
+      "quote": "GBP",
+      "rate": 0.8791
+    },
+    {
+      "base": "EUR",
+      "date": "2025-10-31",
+      "quote": "GBP",
+      "rate": 0.87914
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-01",
+      "quote": "GBP",
+      "rate": 0.87917
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-02",
+      "quote": "GBP",
+      "rate": 0.87901
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-03",
+      "quote": "GBP",
+      "rate": 0.87716
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-04",
+      "quote": "GBP",
+      "rate": 0.87775
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-05",
+      "quote": "GBP",
+      "rate": 0.88079
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-06",
+      "quote": "GBP",
+      "rate": 0.88008
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-07",
+      "quote": "GBP",
+      "rate": 0.87993
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-08",
+      "quote": "GBP",
+      "rate": 0.88003
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-09",
+      "quote": "GBP",
+      "rate": 0.87989
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-10",
+      "quote": "GBP",
+      "rate": 0.87897
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-11",
+      "quote": "GBP",
+      "rate": 0.87856
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-12",
+      "quote": "GBP",
+      "rate": 0.88049
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-13",
+      "quote": "GBP",
+      "rate": 0.88155
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-14",
+      "quote": "GBP",
+      "rate": 0.88324
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-15",
+      "quote": "GBP",
+      "rate": 0.88334
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-16",
+      "quote": "GBP",
+      "rate": 0.88336
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-17",
+      "quote": "GBP",
+      "rate": 0.88116
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-18",
+      "quote": "GBP",
+      "rate": 0.88073
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-19",
+      "quote": "GBP",
+      "rate": 0.88119
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-20",
+      "quote": "GBP",
+      "rate": 0.88158
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-21",
+      "quote": "GBP",
+      "rate": 0.88123
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-22",
+      "quote": "GBP",
+      "rate": 0.88117
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-23",
+      "quote": "GBP",
+      "rate": 0.88105
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-24",
+      "quote": "GBP",
+      "rate": 0.88025
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-25",
+      "quote": "GBP",
+      "rate": 0.87916
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-26",
+      "quote": "GBP",
+      "rate": 0.8776
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-27",
+      "quote": "GBP",
+      "rate": 0.87585
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-28",
+      "quote": "GBP",
+      "rate": 0.87538
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-29",
+      "quote": "GBP",
+      "rate": 0.87526
+    },
+    {
+      "base": "EUR",
+      "date": "2025-11-30",
+      "quote": "GBP",
+      "rate": 0.87526
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-01",
+      "quote": "GBP",
+      "rate": 0.87614
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-02",
+      "quote": "GBP",
+      "rate": 0.87842
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-03",
+      "quote": "GBP",
+      "rate": 0.87778
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-04",
+      "quote": "GBP",
+      "rate": 0.87554
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-05",
+      "quote": "GBP",
+      "rate": 0.87316
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-06",
+      "quote": "GBP",
+      "rate": 0.87304
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-07",
+      "quote": "GBP",
+      "rate": 0.87306
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-08",
+      "quote": "GBP",
+      "rate": 0.87357
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-09",
+      "quote": "GBP",
+      "rate": 0.8739
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-10",
+      "quote": "GBP",
+      "rate": 0.87339
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-11",
+      "quote": "GBP",
+      "rate": 0.8746
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-12",
+      "quote": "GBP",
+      "rate": 0.87589
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-13",
+      "quote": "GBP",
+      "rate": 0.87607
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-14",
+      "quote": "GBP",
+      "rate": 0.87624
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-15",
+      "quote": "GBP",
+      "rate": 0.87745
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-16",
+      "quote": "GBP",
+      "rate": 0.8767
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-17",
+      "quote": "GBP",
+      "rate": 0.87679
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-18",
+      "quote": "GBP",
+      "rate": 0.87651
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-19",
+      "quote": "GBP",
+      "rate": 0.87602
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-20",
+      "quote": "GBP",
+      "rate": 0.87591
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-21",
+      "quote": "GBP",
+      "rate": 0.87579
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-22",
+      "quote": "GBP",
+      "rate": 0.87471
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-23",
+      "quote": "GBP",
+      "rate": 0.87252
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-24",
+      "quote": "GBP",
+      "rate": 0.87241
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-25",
+      "quote": "GBP",
+      "rate": 0.87221
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-26",
+      "quote": "GBP",
+      "rate": 0.8723
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-27",
+      "quote": "GBP",
+      "rate": 0.87231
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-28",
+      "quote": "GBP",
+      "rate": 0.87236
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-29",
+      "quote": "GBP",
+      "rate": 0.87254
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-30",
+      "quote": "GBP",
+      "rate": 0.87136
+    },
+    {
+      "base": "EUR",
+      "date": "2025-12-31",
+      "quote": "GBP",
+      "rate": 0.87177
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-01",
+      "quote": "GBP",
+      "rate": 0.87197
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-02",
+      "quote": "GBP",
+      "rate": 0.87201
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-03",
+      "quote": "GBP",
+      "rate": 0.87197
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-04",
+      "quote": "GBP",
+      "rate": 0.87184
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-05",
+      "quote": "GBP",
+      "rate": 0.8691
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-06",
+      "quote": "GBP",
+      "rate": 0.86687
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-07",
+      "quote": "GBP",
+      "rate": 0.86618
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-08",
+      "quote": "GBP",
+      "rate": 0.86729
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-09",
+      "quote": "GBP",
+      "rate": 0.86698
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-10",
+      "quote": "GBP",
+      "rate": 0.86686
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-11",
+      "quote": "GBP",
+      "rate": 0.86687
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-12",
+      "quote": "GBP",
+      "rate": 0.8678
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-13",
+      "quote": "GBP",
+      "rate": 0.86631
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-14",
+      "quote": "GBP",
+      "rate": 0.86622
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-15",
+      "quote": "GBP",
+      "rate": 0.86644
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-16",
+      "quote": "GBP",
+      "rate": 0.86631
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-17",
+      "quote": "GBP",
+      "rate": 0.86625
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-18",
+      "quote": "GBP",
+      "rate": 0.86623
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-19",
+      "quote": "GBP",
+      "rate": 0.86766
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-20",
+      "quote": "GBP",
+      "rate": 0.86817
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-21",
+      "quote": "GBP",
+      "rate": 0.87167
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-22",
+      "quote": "GBP",
+      "rate": 0.87141
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-23",
+      "quote": "GBP",
+      "rate": 0.86953
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-24",
+      "quote": "GBP",
+      "rate": 0.86925
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-25",
+      "quote": "GBP",
+      "rate": 0.86907
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-26",
+      "quote": "GBP",
+      "rate": 0.86753
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-27",
+      "quote": "GBP",
+      "rate": 0.86805
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-28",
+      "quote": "GBP",
+      "rate": 0.86811
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-29",
+      "quote": "GBP",
+      "rate": 0.86639
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-30",
+      "quote": "GBP",
+      "rate": 0.86648
+    },
+    {
+      "base": "EUR",
+      "date": "2026-01-31",
+      "quote": "GBP",
+      "rate": 0.86648
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-01",
+      "quote": "GBP",
+      "rate": 0.8664
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-02",
+      "quote": "GBP",
+      "rate": 0.86606
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-03",
+      "quote": "GBP",
+      "rate": 0.86332
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-04",
+      "quote": "GBP",
+      "rate": 0.86193
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-05",
+      "quote": "GBP",
+      "rate": 0.8653
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-06",
+      "quote": "GBP",
+      "rate": 0.86794
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-07",
+      "quote": "GBP",
+      "rate": 0.86787
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-08",
+      "quote": "GBP",
+      "rate": 0.86801
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-09",
+      "quote": "GBP",
+      "rate": 0.86938
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-10",
+      "quote": "GBP",
+      "rate": 0.87096
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-11",
+      "quote": "GBP",
+      "rate": 0.87037
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-12",
+      "quote": "GBP",
+      "rate": 0.87003
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-13",
+      "quote": "GBP",
+      "rate": 0.87141
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-14",
+      "quote": "GBP",
+      "rate": 0.87141
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-15",
+      "quote": "GBP",
+      "rate": 0.87137
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-16",
+      "quote": "GBP",
+      "rate": 0.87006
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-17",
+      "quote": "GBP",
+      "rate": 0.87136
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-18",
+      "quote": "GBP",
+      "rate": 0.87212
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-19",
+      "quote": "GBP",
+      "rate": 0.87275
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-20",
+      "quote": "GBP",
+      "rate": 0.87279
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-21",
+      "quote": "GBP",
+      "rate": 0.87271
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-22",
+      "quote": "GBP",
+      "rate": 0.87267
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-23",
+      "quote": "GBP",
+      "rate": 0.87389
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-24",
+      "quote": "GBP",
+      "rate": 0.87277
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-25",
+      "quote": "GBP",
+      "rate": 0.87206
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-26",
+      "quote": "GBP",
+      "rate": 0.872
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-27",
+      "quote": "GBP",
+      "rate": 0.87401
+    },
+    {
+      "base": "EUR",
+      "date": "2026-02-28",
+      "quote": "GBP",
+      "rate": 0.87442
+    }
+  ],
+  "retrieved_at_utc": "2026-09-23T11:06:31+00:00",
+  "source": "Frankfurter v2 blended reference rate"
+}

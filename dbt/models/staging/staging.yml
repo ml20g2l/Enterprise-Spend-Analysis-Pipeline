@@ -1,0 +1,132 @@
+version: 2
+
+models:
+  - name: stg_synthetic_departments
+    description: "One fictional department, cleaned from the Phase 3 raw table."
+    columns:
+      - name: department_id
+        tests: [unique, not_null]
+      - name: is_synthetic
+        tests:
+          - accepted_values:
+              values: [1]
+              quote: false
+
+  - name: stg_synthetic_vendors
+    description: "One fictional vendor."
+    columns:
+      - name: vendor_id
+        tests: [unique, not_null]
+      - name: default_currency
+        tests:
+          - accepted_values:
+              values: ['GBP', 'EUR', 'USD']
+      - name: risk_tier
+        tests:
+          - accepted_values:
+              values: ['low', 'medium', 'high']
+      - name: is_synthetic
+        tests:
+          - accepted_values:
+              values: [1]
+              quote: false
+
+  - name: stg_synthetic_contracts
+    description: "One fictional vendor contract."
+    columns:
+      - name: contract_id
+        tests: [unique, not_null]
+      - name: vendor_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_synthetic_vendors')
+              field: vendor_id
+      - name: contract_status
+        tests:
+          - accepted_values:
+              values: ['approved']
+
+  - name: stg_synthetic_expenses
+    description: "One fictional expense before contract matching and FX conversion."
+    columns:
+      - name: expense_id
+        tests: [unique, not_null]
+      - name: department_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_synthetic_departments')
+              field: department_id
+      - name: vendor_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_synthetic_vendors')
+              field: vendor_id
+      - name: submitted_contract_id
+        tests:
+          - relationships:
+              to: ref('stg_synthetic_contracts')
+              field: contract_id
+      - name: original_currency
+        tests:
+          - accepted_values:
+              values: ['GBP', 'EUR', 'USD']
+      - name: is_synthetic
+        tests:
+          - accepted_values:
+              values: [1]
+              quote: false
+
+  - name: stg_fx_rates
+    description: "One cached Frankfurter observation for a base currency and GBP quote."
+    columns:
+      - name: fx_rate_id
+        tests: [unique, not_null]
+      - name: base_currency
+        tests:
+          - accepted_values:
+              values: ['EUR', 'USD']
+      - name: quote_currency
+        tests:
+          - accepted_values:
+              values: ['GBP']
+
+  - name: stg_synthetic_approval_events
+    description: "One fictional workflow event; four ordered events are expected per expense."
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: expense_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_synthetic_expenses')
+              field: expense_id
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: ['purchase_request', 'manager_approval', 'finance_approval', 'payment']
+      - name: event_sequence
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4]
+              quote: false
+
+  - name: stg_vendor_satisfaction
+    description: "One fictional vendor survey response."
+    columns:
+      - name: response_id
+        tests: [unique, not_null]
+      - name: vendor_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_synthetic_vendors')
+              field: vendor_id
+      - name: overall_rating
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+              quote: false

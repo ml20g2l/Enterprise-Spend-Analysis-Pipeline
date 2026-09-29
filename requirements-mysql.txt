@@ -1,0 +1,3 @@
+# Optional Phase 3 dependency for loading a live MySQL 8.0 instance.
+mysql-connector-python>=9,<10
+

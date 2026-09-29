@@ -1,0 +1,3 @@
+# Runtime dependencies: none (Python 3.11+ standard library only).
+# Optional developer test runner: pytest>=8,<9
+

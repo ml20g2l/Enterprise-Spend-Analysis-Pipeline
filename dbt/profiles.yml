@@ -1,0 +1,16 @@
+enterprise_spend:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: "{{ env_var('DBT_MYSQL_HOST', '127.0.0.1') }}"
+      port: "{{ env_var('DBT_MYSQL_PORT', '3306') | int }}"
+      schema: "{{ env_var('DBT_MYSQL_DATABASE', 'enterprise_spend') }}"
+      username: "{{ env_var('DBT_MYSQL_USER', 'spend_app') }}"
+      password: "{{ env_var('DBT_MYSQL_PASSWORD') }}"
+      ssl_disabled: true
+      charset: utf8mb4
+      collation: utf8mb4_0900_ai_ci
+      # The community MySQL adapter can deadlock on concurrent view DDL and
+      # dependent tests. This small local project favours deterministic builds.
+      threads: 1

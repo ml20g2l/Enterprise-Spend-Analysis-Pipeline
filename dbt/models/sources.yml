@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: phase3_raw
+    description: "Phase 3 MySQL raw tables for the fictional corporate scenario. No DEFRA rows are present."
+    schema: "{{ env_var('DBT_MYSQL_DATABASE', 'enterprise_spend') }}"
+    tables:
+      - name: raw_synthetic_department
+      - name: raw_synthetic_vendor
+      - name: raw_synthetic_contract
+      - name: raw_synthetic_expense
+      - name: raw_fx_rate
+      - name: raw_synthetic_approval_event
+      - name: raw_synthetic_vendor_satisfaction
+
+  - name: phase3_audit
+    description: "Previously validated Python outputs used only as reconciliation baselines, never as dbt transformation inputs."
+    schema: "{{ env_var('DBT_MYSQL_DATABASE', 'enterprise_spend') }}"
+    tables:
+      - name: fact_synthetic_spend
+      - name: fact_synthetic_approval

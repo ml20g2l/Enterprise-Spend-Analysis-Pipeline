@@ -1,0 +1,27 @@
+16:26:00  Running with dbt=1.7.19
+16:26:00  dbt version: 1.7.19
+16:26:00  python version: 3.13.5
+16:26:00  python path: <PROJECT_ROOT>\.venv-dbt\Scripts\python.exe
+16:26:00  os info: Windows-11-10.0.26200-SP0
+16:26:00  Using profiles dir at dbt
+16:26:00  Using profiles.yml file at dbt\profiles.yml
+16:26:00  Using dbt_project.yml file at dbt\dbt_project.yml
+16:26:00  adapter type: mysql
+16:26:00  adapter version: 1.7.0
+16:26:00  Configuration:
+16:26:00    profiles.yml file [OK found and valid]
+16:26:00    dbt_project.yml file [OK found and valid]
+16:26:00  Required dependencies:
+16:26:00   - git [OK found]
+
+16:26:00  Connection:
+16:26:00    server: 127.0.0.1
+16:26:00    unix_socket: None
+16:26:00    port: 3306
+16:26:00    database: None
+16:26:00    schema: enterprise_spend
+16:26:00    user: spend_app
+16:26:00  Registered adapter: mysql=1.7.0
+16:26:00    Connection test: [OK connection ok]
+
+16:26:00  All checks passed!

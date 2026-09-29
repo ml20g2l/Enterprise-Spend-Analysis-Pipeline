@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: mart_department_spend
+    description: "Grain: one fictional department; spend and contract-compliance summary."
+    columns:
+      - name: department_id
+        tests: [unique, not_null]
+      - name: record_origin
+        tests:
+          - accepted_values:
+              values: ['synthetic_fictional_company']
+  - name: mart_vendor_performance
+    description: "Grain: one fictional vendor; spend, compliance, risk and survey measures."
+    columns:
+      - name: vendor_id
+        tests: [unique, not_null]
+  - name: mart_contract_compliance
+    description: "Grain: month, department, spend category and compliance status for fictional expenses."
+  - name: mart_approval_performance
+    description: "Grain: expense month and department; fictional approval speed and SLA measures."
+  - name: mart_monthly_currency_spend
+    description: "Grain: expense month and original currency; original and GBP spend exposure."

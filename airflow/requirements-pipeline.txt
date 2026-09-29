@@ -1,0 +1,4 @@
+# Kept separate from Airflow's own Python environment.
+dbt-core==1.7.19
+dbt-mysql==1.7.0
+mysql-connector-python==9.7.0

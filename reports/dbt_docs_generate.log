@@ -1,0 +1,8 @@
+16:35:20  Running with dbt=1.7.19
+16:35:20  Registered adapter: mysql=1.7.0
+16:35:20  Found 17 models, 73 tests, 9 sources, 0 exposures, 0 metrics, 375 macros, 0 groups, 0 semantic models
+16:35:20  
+16:35:20  Concurrency: 1 threads (target='dev')
+16:35:20  
+16:35:30  Building catalog
+16:35:30  Catalog written to <PROJECT_ROOT>\dbt\target\catalog.json

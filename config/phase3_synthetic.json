@@ -1,0 +1,21 @@
+{
+  "scenario_id": "fictional_corporate_spend_v1",
+  "generation_version": "1.0.0",
+  "random_seed": 20260923,
+  "period_start": "2025-03-01",
+  "period_end": "2026-02-28",
+  "expense_count": 5000,
+  "vendor_count": 125,
+  "department_count": 12,
+  "contract_count": 200,
+  "survey_response_count": 300,
+  "currency_counts": {
+    "GBP": 3000,
+    "EUR": 1250,
+    "USD": 750
+  },
+  "approval_sla_hours": 72,
+  "fx_lookback_days": 10,
+  "frankfurter_api_base": "https://api.frankfurter.dev/v2"
+}
+

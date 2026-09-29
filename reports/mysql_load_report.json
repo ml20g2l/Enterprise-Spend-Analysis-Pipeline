@@ -1,0 +1,15 @@
+{
+  "first_run_counts": {
+    "fact_synthetic_approval": 5000,
+    "fact_synthetic_spend": 5000,
+    "pipeline_load_run": 1,
+    "raw_fx_rate": 750,
+    "raw_synthetic_approval_event": 20000,
+    "raw_synthetic_contract": 200,
+    "raw_synthetic_department": 12,
+    "raw_synthetic_expense": 5000,
+    "raw_synthetic_vendor": 125,
+    "raw_synthetic_vendor_satisfaction": 300
+  },
+  "idempotency_verified": false
+}

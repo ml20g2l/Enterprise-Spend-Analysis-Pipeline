@@ -1,0 +1,5 @@
+# Phase 4 is intentionally isolated from the Python 3.13 ingestion runtime.
+# dbt-mysql 1.7.0 is the latest community MySQL adapter release and requires
+# the matching dbt-core 1.7 line. Python 3.11 is used for the local runtime.
+dbt-core==1.7.19
+dbt-mysql==1.7.0
