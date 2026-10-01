@@ -529,7 +529,7 @@ def generate(config_path: Path, project_root: Path, offline: bool = False) -> di
         *[manifest["files"][name]["sha256"] for name in sorted(manifest["files"])],
     )
     reports_dir.mkdir(parents=True, exist_ok=True)
-    (reports_dir / "phase3_generation_manifest.json").write_text(
+    (reports_dir / "generation_manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8"
     )
     return manifest

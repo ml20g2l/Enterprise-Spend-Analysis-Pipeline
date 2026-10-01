@@ -1,4 +1,4 @@
-# Phase 6 business findings
+# Business findings from the fictional scenario
 
 ## Executive summary
 
@@ -99,6 +99,6 @@ These are interpretations of a deterministic synthetic scenario. They are suitab
 - Reconciliation: department, vendor, contract, and currency marts each reconcile to **5,000 expenses and £1,160,936,638.63**.
 - Approval reconciliation: **5,000 requests**, one per synthetic expense.
 - Live Phase 6 snapshot checks: **10/10 passed** (origin controls, counts, spend, and approval completeness).
-- Automated regression suite: **17/17 tests passed** in the project dbt virtual environment.
+- Automated regression suite: **19/19 tests passed** in the project dbt virtual environment.
 - Model constraint: the five marts are aggregate tables at different grains. Vendor analysis is full-period; department/category cannot filter currency; department spend cannot be trended from `mart_department_spend`.
-- Evidence: `reports/phase6_analysis_snapshot.json` contains the schemas and query results used here; `src/analysis/phase6_powerbi_analysis.py` reproduces the snapshot.
+- Evidence: `reports/reporting_analysis_snapshot.json` contains the schemas and query results used here; `src/analysis/phase6_powerbi_analysis.py` reproduces the snapshot.

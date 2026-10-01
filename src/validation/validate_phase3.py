@@ -315,7 +315,7 @@ def validate(project_root: Path, write_reports: bool = True) -> tuple[list[dict]
     }
 
     if write_reports:
-        write_csv(reports / "phase3_reconciliation.csv", results, ["check_name", "status", "actual", "expected", "severity"])
+        write_csv(reports / "generation_reconciliation.csv", results, ["check_name", "status", "actual", "expected", "severity"])
         lines = [
             "# Phase 3 synthetic data and multi-currency report",
             "",
@@ -355,12 +355,12 @@ def validate(project_root: Path, write_reports: bool = True) -> tuple[list[dict]
             "",
             "Zero quarantined rows means the deterministic generator produced no records that violated the current hard validation rules. It does not mean that the scenario is free from warnings, modelling assumptions, or business limitations.",
             "",
-            "## MySQL execution status",
+            "## Live implementation evidence",
             "",
-            "The repository had no implemented MySQL loader or deployed schema at the start of Phase 3, and this environment has no MySQL client or server. MySQL DDL and an idempotent loader are supplied as implementation artifacts, but database row counts and second-run behaviour remain unverified against a live MySQL instance.",
+            "The deterministic files are the inputs to the implemented MySQL loader. Live database counts, financial reconciliation, and second-run idempotency are documented separately in `reports/mysql_live_verification.md`; dbt and Airflow evidence remain in their dedicated reports. This file validates generation and does not claim to rerun those external services.",
             "",
         ]
-        (reports / "phase3_report.md").write_text("\n".join(lines), encoding="utf-8")
+        (reports / "generation_validation.md").write_text("\n".join(lines), encoding="utf-8")
     return results, summary
 
 

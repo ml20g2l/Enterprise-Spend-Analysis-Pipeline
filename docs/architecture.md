@@ -1,56 +1,58 @@
-# Proposed architecture
+# Implemented architecture
 
-## Layer flow
+This repository contains two deliberately separate data paths. The real DEFRA
+path demonstrates source discovery, data-quality engineering, and descriptive
+spend analysis. The fictional
+corporate path demonstrates the operational analytics stack. They share
+engineering principles, but their records are never combined or described as
+one organisation's spend.
 
 ```mermaid
 flowchart LR
-    A[DEFRA monthly CSVs\nreal public GBP] --> B[raw_defra_transactions]
-    C[Synthetic expense files\nfictional organisation EUR/USD] --> D[raw_synthetic_expenses]
-    E[Frankfurter API\nreal reference rates] --> F[raw_fx_rates]
-    G[Synthetic contract master] --> H[raw_synthetic_contracts]
-    I[Synthetic approval JSON] --> J[raw_synthetic_approval_events]
+    subgraph REAL[Real public-data profiling and analysis path]
+      A[12 DEFRA CSVs\n13,830 rows] --> B[Python profiling]
+      B --> C[Inventory, quality report,\nduplicate/date checks and findings]
+    end
 
-    B --> K[stg_defra_transactions]
-    D --> L[stg_synthetic_expenses]
-    F --> M[stg_fx_rates]
-    H --> N[stg_synthetic_contracts]
-    J --> O[stg_synthetic_approval_events]
-
-    K --> P[int_defra_spend_review]
-    L --> Q[int_synthetic_expenses_gbp]
-    M --> Q
-    N --> R[int_synthetic_contract_match]
-    Q --> R
-    O --> S[int_synthetic_approval_cycle]
-
-    P --> T[fact_defra_spend\nREAL ONLY]
-    Q --> U[fact_synthetic_spend\nSYNTHETIC ONLY]
-    R --> U
-    S --> V[fact_synthetic_approval\nSYNTHETIC ONLY]
-
-    T --> W[DEFRA procurement marts]
-    U --> X[Synthetic spend/compliance marts]
-    V --> Y[Synthetic operations marts]
+    subgraph SYNTHETIC[Fictional corporate analytics path]
+      D[Deterministic generator] --> E[Validated CSV and JSON outputs]
+      F[Cached Frankfurter FX] --> E
+      E --> G[MySQL raw and audit facts]
+      G --> H[dbt staging]
+      H --> I[dbt intermediate]
+      I --> J[Five dbt marts]
+      J --> K[Power BI]
+      L[Airflow] -. orchestrates .-> G
+      L -. orchestrates .-> H
+      L -. verifies .-> J
+    end
 ```
 
-## Responsibilities
+## Responsibility boundaries
 
-| Layer | Purpose | Mutability and controls |
-|---|---|---|
-| Raw | Lossless source representation plus file/API lineage. | Append/idempotent load; no source-value correction. Raw primary key is source-scoped. |
-| Staging | Canonical names, typed dates/amounts, trimming policy, quality statuses. | One model per source; quarantined rows excluded from accepted staging but retained in a rejection table. |
-| Intermediate | Duplicate review, GBP conversion, contract matching, and approval-cycle derivations. | Business logic remains source-specific. DEFRA blanks never inherit synthetic contracts. |
-| Mart | Stable fact/dimension grains for analysis. | Separate real and synthetic facts. Shared dimensions use source-scoped natural keys. |
+| Component | Implemented responsibility |
+|---|---|
+| Python | DEFRA profiling; deterministic fictional data generation; cached historical FX matching; hard-rule validation and quarantine; idempotent MySQL loading. |
+| MySQL 8 | Seven fictional/FX raw tables, two audit fact tables, and one load-run control table. No DEFRA table is loaded. |
+| dbt Core | Seven staging views, five intermediate views, five mart tables, and 73 data tests for the fictional scenario. |
+| Airflow | A local Docker/WSL2 five-task workflow: preflight, ingestion, dbt build, reconciliation, and summary. It does not execute DDL. |
+| Power BI | Three pages backed by five dbt marts. It contains fictional corporate analysis only. |
 
-## Idempotency and lineage
+## Controls
 
-1. Register a file by SHA-256 and controlled `source_month`.
-2. Generate `source_record_id` deterministically from source file, row number, and source-value hash.
-3. Load with a unique constraint on `source_record_id`; a repeated identical run becomes a no-op.
-4. If a publisher replaces a file under the same name, its file hash changes. Store a new ingestion version and require an explicit supersession decision instead of silently overwriting history.
-5. Carry `source_record_id` into every downstream fact so any metric can trace to file and row.
+- Stable source identifiers and upserts make repeated MySQL loads idempotent.
+- `record_origin`, `scenario_id`, and `is_synthetic` preserve the data boundary.
+- Financial calculations use `Decimal`; the applied FX rate and rate date are retained.
+- Contract compliance is determined from vendor, category, and validity dates,
+  not from the presence of a contract number alone.
+- Airflow serialises writes, stops downstream tasks on failure, and reconciles
+  counts and totals after dbt completes.
+- Credentials are supplied through ignored local environment files or secure
+  prompts and are not stored in the repository.
 
-## Quarantine boundary
+## Explicit scope boundary
 
-Hard failures are invalid/missing transaction date, invalid/missing numeric amount, missing lineage, or an unexpected schema that cannot be mapped unambiguously. Soft warnings include source-month discrepancies, exact repeats, repeated business identifiers, blank contract/project/transaction references, non-positive amounts, and values below the publication threshold. Warnings stay in the accepted population with flags.
-
+`fact_defra_spend` and DEFRA dbt marts were part of an early target-state design
+but were not implemented. The public DEFRA files remain a profiled descriptive
+analysis case study; the operational MySQL/dbt/Airflow/Power BI path begins with the
+fictional corporate scenario and real reference FX rates.

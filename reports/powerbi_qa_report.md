@@ -24,7 +24,8 @@ Desktop checks.
 - Record origin: `synthetic_fictional_company`
 - Visible `COMPLANCE` label: corrected to `COMPLIANCE`
 
-Machine-readable package evidence is in `reports/powerbi_structure_qa.json`.
+The package checks can be reproduced with
+`python -m src.analysis.inspect_powerbi` and the Power BI regression tests.
 
 ## Rendered visual review
 

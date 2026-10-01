@@ -1,8 +1,9 @@
-# Phase 5 Airflow architecture
+# Airflow orchestration
 
 ## Decision
 
-Airflow runs in Linux containers through Docker Desktop and WSL2. The existing
+Airflow runs as a local, production-style workflow in Linux containers through
+Docker Desktop and WSL2. The existing
 MySQL 8.0.46 server remains on Windows and is reached from the containers as
 `host.docker.internal:3306`. No MySQL DDL is run by the DAG.
 

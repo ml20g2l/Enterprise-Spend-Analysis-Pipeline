@@ -1,12 +1,17 @@
-# Phase 6 Power BI dashboard specification
+# Power BI semantic model and dashboard design
 
 ## Status and scope
 
-This is the build specification for a report that will be created manually in Power BI Desktop. Phase 6 is **not complete**: no `.pbix` file was created and no existing ingestion, dbt, MySQL, or Airflow component was changed.
+The three-page report is complete and stored at
+`powerbi/Enterprise_Spend_Analysis_Pipeline.pbix`. This document records the
+implemented semantic model, measures, visual design, and interaction limits.
 
 All five reporting marts describe a **synthetic fictional company**. They must not be presented as DEFRA activity. Every mart currently contains `record_origin = 'synthetic_fictional_company'` and `is_synthetic = 1`.
 
-The specification was validated against the live MySQL `enterprise_spend` database on 29 September 2026. The reproducible read-only query output is in `reports/phase6_analysis_snapshot.json`.
+The specification was validated against the live MySQL `enterprise_spend`
+database on 29 September 2026. The reproducible read-only query output is in
+`reports/reporting_analysis_snapshot.json`; rendered and package QA is documented
+in `reports/powerbi_qa_report.md`.
 
 ## Reporting tables and grain
 

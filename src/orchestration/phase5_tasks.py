@@ -62,7 +62,7 @@ def connect():
 def required_project_files(project_root: Path) -> list[Path]:
     paths = [project_root / relative for _, relative, _, _ in TABLE_SPECS]
     paths.extend([
-        project_root / "reports" / "phase3_generation_manifest.json",
+        project_root / "reports" / "generation_manifest.json",
         project_root / "dbt" / "dbt_project.yml",
         project_root / "dbt" / "profiles.yml",
     ])

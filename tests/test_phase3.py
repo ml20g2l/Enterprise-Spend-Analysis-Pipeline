@@ -57,7 +57,7 @@ class Phase3ValidationTests(unittest.TestCase):
             self.assertTrue(all(row["fx_cache_file"] == "GBP_IDENTITY" for row in gbp_rows))
 
     def test_offline_generation_is_reproducible(self):
-        manifest = json.loads((PROJECT_ROOT / "reports" / "phase3_generation_manifest.json").read_text(encoding="utf-8"))
+        manifest = json.loads((PROJECT_ROOT / "reports" / "generation_manifest.json").read_text(encoding="utf-8"))
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_root = Path(temp_dir)
             target_fx = temp_root / "data" / "raw" / "fx_rates"

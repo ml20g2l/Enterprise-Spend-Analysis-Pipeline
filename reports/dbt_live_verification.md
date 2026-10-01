@@ -14,10 +14,10 @@ Generated: `2026-10-01T13:58:21.996863+00:00`
 
 | Command | Exit code | Log |
 |---|---:|---|
-| `dbt debug` | 0 | `reports/dbt_debug.log` |
-| `dbt build` | 0 | `reports/dbt_build.log` |
-| `dbt test` | 0 | `reports/dbt_test.log` |
-| `dbt docs generate` | 0 | `reports/dbt_docs_generate.log` |
+| `dbt debug` | 0 | Pass |
+| `dbt build` | 0 | 90/90 nodes passed |
+| `dbt test` | 0 | 73/73 tests passed |
+| `dbt docs generate` | 0 | Catalog generated |
 
 ## Built relation counts
 

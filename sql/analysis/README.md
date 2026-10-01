@@ -1,4 +1,5 @@
-# Analysis SQL (deferred)
+# Independent audit SQL
 
-Queries will be added after the database schema is approved and deployed.
-
+These queries independently check contract matching and approval-event ordering
+against the implemented MySQL tables. The dbt project contains the operational
+transformation and test logic; these files provide readable SQL audit examples.

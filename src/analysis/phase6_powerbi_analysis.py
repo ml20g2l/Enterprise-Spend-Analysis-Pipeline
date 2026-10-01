@@ -266,7 +266,7 @@ def main() -> None:
         failed = [name for name, passed in snapshot["validation"]["checks"].items() if not passed]
         raise RuntimeError(f"Phase 6 reconciliation failed: {', '.join(failed)}")
 
-    output = args.project_root.resolve() / "reports" / "phase6_analysis_snapshot.json"
+    output = args.project_root.resolve() / "reports" / "reporting_analysis_snapshot.json"
     output.write_text(json.dumps(snapshot, indent=2, sort_keys=True), encoding="utf-8")
     print(json.dumps({
         "status": snapshot["validation"]["status"],

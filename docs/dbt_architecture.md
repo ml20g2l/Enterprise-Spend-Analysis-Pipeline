@@ -1,4 +1,4 @@
-# Phase 4 dbt design
+# dbt transformation architecture
 
 ## Responsibility boundary
 
@@ -6,7 +6,10 @@ Python remains responsible for API access, FX-cache persistence, deterministic s
 
 ## Compatibility decision
 
-`dbt-mysql==1.7.0` is the newest community MySQL adapter release and matches `dbt-core==1.7.19`. The adapter is labelled Alpha/experimental by its maintainers, was released in April 2024, and documents MySQL 8.0 support. Its published Python support statement is older than this project environment. Installation and CLI startup were therefore tested in an isolated Python 3.13.5 environment; this is project evidence, not a claim of upstream Python 3.13 support. `requirements-dbt.txt` pins the verified pair.
+The verified environment pins `dbt-core==1.7.19` and `dbt-mysql==1.7.0`.
+The community MySQL adapter is experimental, so the project uses an isolated
+environment and records live compatibility evidence rather than assuming
+upstream support.
 
 The first live `dbt build` used four threads and encountered MySQL error 1213 while creating `int_expense_contract_match`; 63 independent nodes passed and 26 downstream nodes were skipped. This was a metadata/DDL concurrency failure, not a failed data assertion. The profile now uses one thread because the local 5,000-row workload does not benefit materially from parallelism and deterministic execution is more important with an experimental adapter.
 

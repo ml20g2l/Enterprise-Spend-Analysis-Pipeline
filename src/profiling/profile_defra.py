@@ -520,10 +520,7 @@ def write_markdown_report(path: Path, profiles: list[FileProfile], metrics: dict
         "## Evidence files",
         "",
         "- `source_inventory.csv`: source hashes, schema, row counts and date coverage.",
-        "- `duplicate_investigation.csv`: exact duplicate and business-candidate rows with lineage.",
-        "- `source_month_discrepancies.csv`: all source-month/date mismatches.",
-        "- `data_quality_summary.csv`: machine-readable check results.",
-        "- `column_profile.csv`: overall and per-file blank rates and cardinality.",
+        "Detailed duplicate, source-month, summary, and column-profile CSVs are reproducible local outputs and are intentionally excluded from the public repository.",
         "- `data/quarantine/defra_rejected_rows.csv`: hard validation failures, if any.",
         "",
     ])

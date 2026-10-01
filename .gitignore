@@ -29,6 +29,17 @@ data/quarantine/*
 
 # Generated command logs; concise verification reports remain versioned.
 reports/dbt_*.log
+reports/column_profile.csv
+reports/data_quality_summary.csv
+reports/duplicate_investigation.csv
+reports/source_month_discrepancies.csv
+reports/generation_reconciliation.csv
+reports/generation_validation.md
+reports/mysql_load_report.json
+reports/mysql_live_verification.json
+reports/dbt_live_verification.json
+reports/airflow_live_verification.json
+reports/powerbi_structure_qa.json
 
 # Design-only prototypes and temporary Power BI export files.
 powerbi/prototype/

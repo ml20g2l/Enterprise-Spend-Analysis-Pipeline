@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SNAPSHOT = PROJECT_ROOT / "reports" / "phase6_analysis_snapshot.json"
+SNAPSHOT = PROJECT_ROOT / "reports" / "reporting_analysis_snapshot.json"
 
 
 class Phase6SnapshotTests(unittest.TestCase):

@@ -161,7 +161,7 @@ def load_once(connection, project_root: Path) -> dict[str, int]:
         ["fx_rate_id", "rate_date", "base_currency", "quote_currency", "rate", "fx_source", "cache_file"],
         {"fx_rate_id"},
     )
-    manifest = json.loads((project_root / "reports" / "phase3_generation_manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads((project_root / "reports" / "generation_manifest.json").read_text(encoding="utf-8"))
     upsert_rows(connection, "pipeline_load_run", [{
         "generation_run_id": manifest["generation_run_id"],
         "scenario_id": manifest["scenario_id"],
@@ -216,4 +216,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

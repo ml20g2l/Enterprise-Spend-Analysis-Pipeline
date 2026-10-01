@@ -59,4 +59,5 @@ The first and second loads both ended with the same row counts and £1,160,936,6
 
 The first attempted live load failed before commit because GBP identity-rate rows supplied an empty `fx_cache_file`, which became `NULL` against a `NOT NULL` column. The generator now stores `GBP_IDENTITY`; validation and a regression test enforce this rule. Pre-load counts on the successful retry were all zero, confirming the failed transaction did not partially commit.
 
-Machine-readable evidence: `reports/mysql_live_verification.json`.
+The credential-free verifier can reproduce these controls with
+`python -m src.ingestion.verify_mysql_phase3`.
