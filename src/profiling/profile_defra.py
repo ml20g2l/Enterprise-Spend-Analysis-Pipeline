@@ -161,6 +161,17 @@ def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def preserved_source_bytes(path: Path) -> bytes:
+    """Return publisher-style bytes independent of Git checkout line endings."""
+    data = path.read_bytes()
+    normalised_lf = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return normalised_lf.replace(b"\n", b"\r\n")
+
+
+def preserved_source_sha256(path: Path) -> str:
+    return hashlib.sha256(preserved_source_bytes(path)).hexdigest()
+
+
 def normalise_key(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip()).casefold()
 
@@ -275,8 +286,8 @@ def load_file(path: Path, ingestion_timestamp: str):
         encoding="Windows-1252",
         currency_code="GBP",
         record_origin="real_public_defra",
-        sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-        byte_size=path.stat().st_size,
+        sha256=preserved_source_sha256(path),
+        byte_size=len(preserved_source_bytes(path)),
         row_count=len(records),
         column_count=len(original_columns),
         original_columns="|".join(original_columns),

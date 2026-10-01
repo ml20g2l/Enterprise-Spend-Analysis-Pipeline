@@ -448,7 +448,17 @@ def generate_surveys(config: dict, vendors: list[dict], rng: random.Random) -> l
 
 
 def file_sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = file_bytes_for_manifest(path)
+    return hashlib.sha256(data).hexdigest()
+
+
+def file_bytes_for_manifest(path: Path) -> bytes:
+    """Make tracked FX-cache provenance stable across Git checkout settings."""
+    data = path.read_bytes()
+    if path.parent.name == "fx_rates":
+        normalised_lf = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        return normalised_lf.replace(b"\n", b"\r\n")
+    return data
 
 
 def generate(config_path: Path, project_root: Path, offline: bool = False) -> dict:
@@ -520,7 +530,7 @@ def generate(config_path: Path, project_root: Path, offline: bool = False) -> di
         "contract_status_counts": dict(sorted(Counter(row["contract_compliance_status"] for row in converted).items())),
         "approval_sla_breach_count": sum(row["approval_sla_breached"] == "true" for row in approval_cycles),
         "files": {
-            path.relative_to(project_root).as_posix(): {"sha256": file_sha256(path), "bytes": path.stat().st_size}
+            path.relative_to(project_root).as_posix(): {"sha256": file_sha256(path), "bytes": len(file_bytes_for_manifest(path))}
             for path in sorted(output_files)
         },
     }

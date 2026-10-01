@@ -10,8 +10,10 @@ lists the March 2025 through February 2026 publications used here.
 `reports/source_inventory.csv` records the controlled source month, official
 publication page, repository path, byte size, SHA-256, encoding, row count,
 schema, and observed date coverage for each file. Tests compare the preserved
-files with these hashes. This proves repository preservation; it does not prove
-byte identity with every current remote download.
+files with these hashes. For cross-platform stability, the byte size and hash
+normalise only Git checkout line endings to the publisher-style CRLF form; all
+other bytes remain unchanged. This verifies repository content preservation but
+does not prove byte identity with every current remote download.
 
 Unless a publication carries a contrary notice, GOV.UK content is available
 under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/),

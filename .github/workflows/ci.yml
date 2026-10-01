@@ -19,5 +19,7 @@ jobs:
           cache: pip
       - name: Install MySQL connector used by loader tests
         run: python -m pip install -r requirements-mysql.txt
+      - name: Generate deterministic offline inputs
+        run: python -m src.synthetic.generate_phase3 --offline
       - name: Run clone-safe regression suite
         run: python -m unittest discover -s tests -v

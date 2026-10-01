@@ -63,6 +63,10 @@ class Phase3ValidationTests(unittest.TestCase):
             target_fx = temp_root / "data" / "raw" / "fx_rates"
             target_fx.parent.mkdir(parents=True, exist_ok=True)
             shutil.copytree(PROJECT_ROOT / "data" / "raw" / "fx_rates", target_fx)
+            for cache_path in target_fx.glob("*.json"):
+                cache_path.write_bytes(
+                    cache_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+                )
             regenerated = generate(
                 PROJECT_ROOT / "config" / "phase3_synthetic.json",
                 temp_root,

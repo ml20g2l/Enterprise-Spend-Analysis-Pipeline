@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import tempfile
 import unittest
 from decimal import Decimal
@@ -12,6 +11,7 @@ from src.profiling.profile_defra import (
     canonical_header,
     parse_amount,
     parse_date,
+    preserved_source_sha256,
     run,
 )
 
@@ -45,8 +45,18 @@ class FullDatasetTests(unittest.TestCase):
         for filename in SOURCE_MONTH_BY_FILE:
             source = PROJECT_ROOT / "data" / "raw" / "defra" / filename
             self.assertTrue(source.exists(), filename)
-            actual = hashlib.sha256(source.read_bytes()).hexdigest()
+            actual = preserved_source_sha256(source)
             self.assertEqual(actual, inventory[filename]["sha256"], filename)
+            with tempfile.TemporaryDirectory() as temp_dir:
+                linux_checkout = Path(temp_dir) / filename
+                linux_checkout.write_bytes(
+                    source.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+                )
+                self.assertEqual(
+                    preserved_source_sha256(linux_checkout),
+                    inventory[filename]["sha256"],
+                    f"cross-platform hash: {filename}",
+                )
 
     def test_expected_profile_results(self):
         with tempfile.TemporaryDirectory() as temp_dir:
