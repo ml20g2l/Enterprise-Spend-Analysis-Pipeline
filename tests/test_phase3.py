@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 
 from src.ingestion.load_mysql import build_upsert_sql
+from src.profiling.profile_defra import run as profile_defra
 from src.synthetic.generate_phase3 import generate
 from src.validation.validate_phase3 import classify_quarantine, validate
 
@@ -17,20 +18,43 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 class Phase3ValidationTests(unittest.TestCase):
     def test_all_reconciliation_checks_pass(self):
-        results, summary = validate(PROJECT_ROOT, write_reports=False)
-        self.assertEqual(summary["checks_failed"], 0)
-        self.assertTrue(all(row["status"] == "PASS" for row in results))
-        self.assertEqual(summary["currency_counts"], {"EUR": 1250, "GBP": 3000, "USD": 750})
-        self.assertEqual(summary["expense_count"], 5000)
-        self.assertEqual(summary["approval_event_count"], 20000)
-        with (PROJECT_ROOT / "data" / "processed" / "synthetic_expenses_gbp.csv").open(
-            encoding="utf-8-sig", newline=""
-        ) as handle:
-            import csv
-            rows = list(csv.DictReader(handle))
-        gbp_rows = [row for row in rows if row["original_currency"] == "GBP"]
-        self.assertTrue(gbp_rows)
-        self.assertTrue(all(row["fx_cache_file"] == "GBP_IDENTITY" for row in gbp_rows))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_root = Path(temp_dir)
+            target_config = temp_root / "config"
+            target_config.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(
+                PROJECT_ROOT / "config" / "phase3_synthetic.json",
+                target_config / "phase3_synthetic.json",
+            )
+            target_fx = temp_root / "data" / "raw" / "fx_rates"
+            target_fx.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(PROJECT_ROOT / "data" / "raw" / "fx_rates", target_fx)
+            shutil.copytree(
+                PROJECT_ROOT / "data" / "raw" / "defra",
+                temp_root / "data" / "raw" / "defra",
+            )
+            profile_defra(
+                temp_root / "data" / "raw" / "defra",
+                temp_root / "data" / "processed",
+                temp_root / "data" / "quarantine",
+                temp_root / "reports",
+                "2026-09-23T00:00:00+00:00",
+            )
+            generate(PROJECT_ROOT / "config" / "phase3_synthetic.json", temp_root, offline=True)
+            results, summary = validate(temp_root, write_reports=False)
+            self.assertEqual(summary["checks_failed"], 0)
+            self.assertTrue(all(row["status"] == "PASS" for row in results))
+            self.assertEqual(summary["currency_counts"], {"EUR": 1250, "GBP": 3000, "USD": 750})
+            self.assertEqual(summary["expense_count"], 5000)
+            self.assertEqual(summary["approval_event_count"], 20000)
+            with (temp_root / "data" / "processed" / "synthetic_expenses_gbp.csv").open(
+                encoding="utf-8-sig", newline=""
+            ) as handle:
+                import csv
+                rows = list(csv.DictReader(handle))
+            gbp_rows = [row for row in rows if row["original_currency"] == "GBP"]
+            self.assertTrue(gbp_rows)
+            self.assertTrue(all(row["fx_cache_file"] == "GBP_IDENTITY" for row in gbp_rows))
 
     def test_offline_generation_is_reproducible(self):
         manifest = json.loads((PROJECT_ROOT / "reports" / "phase3_generation_manifest.json").read_text(encoding="utf-8"))

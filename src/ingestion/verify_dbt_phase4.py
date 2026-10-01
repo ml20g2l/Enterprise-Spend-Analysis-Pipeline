@@ -40,7 +40,12 @@ def run_dbt(project_root: Path, args: list[str], env: dict[str, str]) -> dict:
         check=False,
     )
     output = completed.stdout + completed.stderr
-    print(output, end="")
+    # Some Windows hosts still expose a cp1252 stdout even when the dbt child
+    # process is forced to UTF-8. Replace only characters the active console
+    # cannot render so a Korean workspace path cannot abort verification.
+    console_encoding = sys.stdout.encoding or "utf-8"
+    printable_output = output.encode(console_encoding, errors="replace").decode(console_encoding)
+    print(printable_output, end="")
     log_name = "dbt_" + "_".join(args).replace(":", "_") + ".log"
     (project_root / "reports" / log_name).write_text(output, encoding="utf-8")
     return {"command": "dbt " + " ".join(args), "exit_code": completed.returncode, "log": f"reports/{log_name}"}

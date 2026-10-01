@@ -16,5 +16,22 @@ dbt/.user.yml
 dbt_packages/
 .DS_Store
 
-# Generated profiling outputs can be reproduced from the preserved raw files.
-# They remain unignored for this portfolio phase so evidence can be reviewed.
+# Local source-drop duplicates. The controlled copies live in data/raw/defra/.
+/*.csv
+
+# Deterministic generated data. Keep only the explanatory READMEs in Git.
+data/raw/synthetic/*
+!data/raw/synthetic/README.md
+data/processed/*
+!data/processed/README.md
+data/quarantine/*
+!data/quarantine/README.md
+
+# Generated command logs; concise verification reports remain versioned.
+reports/dbt_*.log
+
+# Design-only prototypes and temporary Power BI export files.
+powerbi/prototype/
+powerbi/*.pdf
+powerbi/*.png
+powerbi/~$*

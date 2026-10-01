@@ -36,13 +36,17 @@ class ParsingTests(unittest.TestCase):
 
 
 class FullDatasetTests(unittest.TestCase):
-    def test_raw_copies_match_root_files(self):
+    def test_preserved_raw_files_match_inventory_hashes(self):
+        with (PROJECT_ROOT / "reports" / "source_inventory.csv").open(
+            encoding="utf-8-sig", newline=""
+        ) as handle:
+            inventory = {row["source_file"]: row for row in csv.DictReader(handle)}
+        self.assertEqual(set(inventory), set(SOURCE_MONTH_BY_FILE))
         for filename in SOURCE_MONTH_BY_FILE:
-            root = PROJECT_ROOT / filename
-            copied = PROJECT_ROOT / "data" / "raw" / "defra" / filename
-            self.assertTrue(root.exists(), filename)
-            self.assertTrue(copied.exists(), filename)
-            self.assertEqual(hashlib.sha256(root.read_bytes()).digest(), hashlib.sha256(copied.read_bytes()).digest())
+            source = PROJECT_ROOT / "data" / "raw" / "defra" / filename
+            self.assertTrue(source.exists(), filename)
+            actual = hashlib.sha256(source.read_bytes()).hexdigest()
+            self.assertEqual(actual, inventory[filename]["sha256"], filename)
 
     def test_expected_profile_results(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -72,4 +76,3 @@ class FullDatasetTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

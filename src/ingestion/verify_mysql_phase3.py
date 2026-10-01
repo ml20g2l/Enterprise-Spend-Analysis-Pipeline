@@ -10,6 +10,7 @@ import argparse
 import csv
 import getpass
 import json
+import os
 from decimal import Decimal
 from pathlib import Path
 
@@ -171,7 +172,9 @@ def main() -> None:
     except ImportError as exc:
         raise SystemExit("mysql-connector-python is not importable. Add the user site-packages directory to PYTHONPATH.") from exc
 
-    password = getpass.getpass(f"MySQL password for {args.user}@{args.host}: ")
+    password = os.environ.get("MYSQL_PASSWORD") or getpass.getpass(
+        f"MySQL password for {args.user}@{args.host}: "
+    )
     project_root = args.project_root.resolve()
     connection = mysql.connector.connect(
         host=args.host,
