@@ -27,6 +27,7 @@ EXPECTED_DBT_COUNTS = {
 }
 EXPECTED_TOTAL_GBP = "1160936638.63"
 ALLOWED_FAILURE_TARGETS = {"none", "preflight", "reconciliation"}
+MONITORING_TABLES = {"pipeline_freshness_run", "pipeline_freshness_result"}
 
 
 def utc_now() -> str:
@@ -63,6 +64,8 @@ def required_project_files(project_root: Path) -> list[Path]:
     paths = [project_root / relative for _, relative, _, _ in TABLE_SPECS]
     paths.extend([
         project_root / "reports" / "generation_manifest.json",
+        project_root / "config" / "data_freshness.json",
+        project_root / "sql" / "ddl" / "freshness_monitoring.sql",
         project_root / "dbt" / "dbt_project.yml",
         project_root / "dbt" / "profiles.yml",
     ])
@@ -95,7 +98,7 @@ def preflight(project_root: Path) -> None:
     finally:
         connection.close()
 
-    required_tables = set(EXPECTED_COUNTS)
+    required_tables = set(EXPECTED_COUNTS) | MONITORING_TABLES
     absent = sorted(required_tables - existing)
     if absent:
         raise RuntimeError("Required MySQL tables are missing: " + ", ".join(absent))
@@ -178,12 +181,21 @@ def summary(project_root: Path) -> None:
     if reconciliation["status"] != "PASS":
         raise RuntimeError("Cannot publish a successful summary for failed reconciliation")
 
+    freshness_path = directory / "freshness.json"
+    if not freshness_path.is_file():
+        raise RuntimeError(f"Freshness output not found: {freshness_path}")
+    freshness = json.loads(freshness_path.read_text(encoding="utf-8"))
+    if freshness["status"] != "PASS":
+        raise RuntimeError("Cannot publish a successful summary for failed freshness checks")
+
     payload = {
         "status": "PASS",
         "generated_at_utc": utc_now(),
         "run_id": reconciliation["run_id"],
         "checks_passed": reconciliation["checks_passed"],
         "checks_failed": reconciliation["checks_failed"],
+        "freshness_checks_passed": freshness["checks_passed"],
+        "freshness_checks_failed": freshness["checks_failed"],
         "synthetic_expense_rows": reconciliation["source_table_counts"]["fact_synthetic_spend"],
         "approval_event_rows": reconciliation["source_table_counts"]["raw_synthetic_approval_event"],
         "total_amount_gbp": reconciliation["dbt_evidence"]["total_amount_gbp"],
@@ -194,6 +206,7 @@ def summary(project_root: Path) -> None:
         f"- Status: **{payload['status']}**\n"
         f"- Run ID: `{payload['run_id']}`\n"
         f"- Checks: **{payload['checks_passed']} passed, {payload['checks_failed']} failed**\n"
+        f"- Freshness: **{payload['freshness_checks_passed']} passed, {payload['freshness_checks_failed']} failed**\n"
         f"- Synthetic expenses: **{payload['synthetic_expense_rows']:,}**\n"
         f"- Approval events: **{payload['approval_event_rows']:,}**\n"
         f"- Reconciled GBP total: **£{payload['total_amount_gbp']}**\n"

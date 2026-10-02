@@ -29,12 +29,32 @@ view-DDL deadlocks are prevented.
 | 2 | `ingest_mysql` | Run the existing transactional, idempotent upsert loader | Rolls back an incomplete transaction and stops dbt |
 | 3 | `dbt_build` | Build 17 models and execute 73 tests with one dbt thread | Stops reconciliation and publication |
 | 4 | `reconcile` | Compare source counts, facts, FX calculations, dbt grain, and GBP totals | Exits non-zero on any mismatch |
-| 5 | `final_summary` | Publish a credential-free per-run JSON/Markdown result | Runs only after every prior task succeeds |
+| 5 | `monitor_freshness` | Check current-load recency and declared source, FX, and mart period coverage | Records rule-level evidence and exits non-zero on stale or incomplete data |
+| 6 | `final_summary` | Publish a credential-free per-run JSON/Markdown result | Runs only after reconciliation and freshness checks succeed |
 
 Tasks receive credentials through an untracked local `airflow/.env`. Commands do
 not print passwords. Reports are written beneath
 `reports/airflow/runs/<run-id>/`; run folders are ignored because Airflow logs
 and generated reports are runtime evidence rather than source code.
+
+## Freshness policy
+
+The project uses a fixed historical scenario, so transaction dates are not
+compared with the current date. That comparison would create a permanent false
+alert after the scenario period ends. The monitor instead separates two
+questions:
+
+- **Operational freshness:** did the idempotent MySQL load complete within the
+  configured 24-hour operating window?
+- **Period completeness:** do the expense source, cached business-day FX data,
+  and monthly reporting mart cover the period declared by the generation
+  manifest?
+
+Six stable rules are configured in `config/data_freshness.json`. Each run writes
+credential-free JSON and Markdown evidence and upserts one audit run plus six
+rule results into `pipeline_freshness_run` and
+`pipeline_freshness_result`. The audit schema is additive and is applied once
+from `sql/ddl/freshness_monitoring.sql`; it does not recreate existing tables.
 
 ## Idempotency and recovery
 

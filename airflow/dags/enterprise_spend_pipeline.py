@@ -81,6 +81,17 @@ with DAG(
         append_env=True,
     )
 
+    monitor_freshness = BashOperator(
+        task_id="monitor_freshness",
+        bash_command=(
+            "set -euo pipefail; "
+            f"{PIPELINE_PYTHON} -m src.monitoring.data_freshness "
+            f"--project-root {PROJECT_ROOT}"
+        ),
+        env=COMMON_ENV,
+        append_env=True,
+    )
+
     final_summary = BashOperator(
         task_id="final_summary",
         retries=0,
@@ -93,4 +104,4 @@ with DAG(
         append_env=True,
     )
 
-    preflight >> ingest_mysql >> dbt_build >> reconcile >> final_summary
+    preflight >> ingest_mysql >> dbt_build >> reconcile >> monitor_freshness >> final_summary

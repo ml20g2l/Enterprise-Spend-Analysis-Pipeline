@@ -10,7 +10,7 @@ import argparse
 import csv
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 
@@ -70,7 +70,7 @@ def coerce_value(column: str, value):
         return None
     if column in {"is_synthetic", "is_contract_compliant", "approval_sla_breached"}:
         return str(value).lower() == "true"
-    if column.endswith("_timestamp_utc"):
+    if column.endswith("_timestamp_utc") or column == "loaded_at_utc":
         return datetime.fromisoformat(str(value)).replace(tzinfo=None)
     if column in {
         "original_amount", "contract_value_gbp", "rate", "fx_rate_to_gbp", "amount_gbp",
@@ -168,7 +168,8 @@ def load_once(connection, project_root: Path) -> dict[str, int]:
         "generation_version": manifest["generation_version"],
         "random_seed": manifest["random_seed"],
         "manifest_json": json.dumps(manifest, ensure_ascii=False, sort_keys=True),
-    }], ["generation_run_id", "scenario_id", "generation_version", "random_seed", "manifest_json"], {"generation_run_id"})
+        "loaded_at_utc": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(timespec="microseconds"),
+    }], ["generation_run_id", "scenario_id", "generation_version", "random_seed", "manifest_json", "loaded_at_utc"], {"generation_run_id"})
     connection.commit()
 
     tables = [spec[0] for spec in TABLE_SPECS] + ["raw_fx_rate", "pipeline_load_run"]

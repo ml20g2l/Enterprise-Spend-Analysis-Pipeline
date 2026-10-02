@@ -1,0 +1,8 @@
+{
+  "policy_version": "1.0.0",
+  "timezone": "UTC",
+  "max_load_age_hours": 24,
+  "max_future_clock_skew_minutes": 5,
+  "fx_period_end_lag_days": 3,
+  "expected_month_count": 12
+}

@@ -18,7 +18,8 @@ controlled system.
 - Historical Frankfurter observations convert GBP, EUR, and USD expenses to
   GBP. The reconciled total is £1,160,936,638.63.
 - MySQL stores controlled raw and audit relations. dbt Core builds 17 models
-  and five reporting marts. Apache Airflow controls a five-task workflow.
+  and five reporting marts. Apache Airflow controls a six-task workflow that
+  includes data-freshness monitoring.
 - All 73 dbt data tests passed. Two live Airflow runs passed 24 reconciliation
   checks each. Power BI consumes the governed marts on three report pages.
 
@@ -235,11 +236,18 @@ concurrent writes and local MySQL DDL conflicts.
 | `ingest_mysql` | Run the transactional idempotent loader | Roll back incomplete work and stop dbt |
 | `dbt_build` | Build 17 models and run 73 tests | Stop reconciliation and publication |
 | `reconcile` | Compare counts, FX results, grains, and totals | Exit with a failed run |
+| `monitor_freshness` | Check operational load recency and source, FX, and mart period coverage | Record six rule results and stop publication on failure |
 | `final_summary` | Write a credential-free run result | Run only after all prior tasks pass |
 
 Two complete DAG runs passed all five tasks and 24 reconciliation checks per
 run. A controlled failure probe also proved that a preflight failure blocks all
 downstream work.
+
+The updated DAG adds freshness monitoring before the final summary. A live
+MySQL evaluation passed all six rules, and evaluating the same monitoring run
+twice kept one audit run and six rule results. A scheduled run and a following
+manual run both passed all six updated DAG tasks, 24 reconciliation checks, and
+six freshness rules without changing the reconciled total.
 
 ## Power BI reporting layer
 
@@ -284,9 +292,10 @@ strong procurement conclusions.
 | dbt data tests | 73/73 passed |
 | dbt spend and approval mismatches | 0 and 0 |
 | Reconciled GBP total | £1,160,936,638.63 |
-| Airflow live runs | Two runs; 5/5 tasks and 24/24 checks each |
+| Airflow live runs | Updated DAG 6/6 tasks, 24/24 reconciliation, and 6/6 freshness in two runs |
 | Power BI mart checks | 10/10 passed |
-| Clone-safe Python regression | 19/19 passed |
+| Data freshness monitor | 6/6 rules passed; audit rerun unchanged |
+| Clone-safe Python regression | 22/22 passed |
 
 GitHub Actions runs the offline regression suite for pushes and pull requests.
 The workflow creates deterministic inputs in a clean Linux environment. This

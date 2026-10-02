@@ -5,6 +5,8 @@
 | Table | Grain | Key / relationship |
 |---|---|---|
 | `pipeline_load_run` | One deterministic generation run | `generation_run_id` |
+| `pipeline_freshness_run` | One freshness evaluation per Airflow run | Hashed `monitor_run_id`; stores policy and overall result |
+| `pipeline_freshness_result` | One freshness rule result per evaluation | `monitor_run_id` + `rule_id`; FK to freshness run |
 | `raw_synthetic_department` | One fictional department | `department_id` unique |
 | `raw_synthetic_vendor` | One fictional vendor | `vendor_id` unique |
 | `raw_synthetic_contract` | One fictional contract | `contract_id`; FK to vendor |
@@ -18,6 +20,8 @@
 The full constraints are executable in
 [`sql/ddl/phase3_mysql.sql`](../sql/ddl/phase3_mysql.sql). The two Python facts
 are reconciliation baselines; dbt builds its models from the seven raw tables.
+The additive monitoring audit schema is executable in
+[`sql/ddl/freshness_monitoring.sql`](../sql/ddl/freshness_monitoring.sql).
 
 ## dbt transformation layer
 

@@ -19,7 +19,7 @@ Airflow, and Power BI.
 | Fictional corporate scenario | 5,000 expenses · 125 vendors · 200 contracts · 20,000 approval events |
 | Multi-currency | GBP 60% · EUR 25% · USD 15% · £1,160,936,638.63 reconciled |
 | Analytics engineering | 17 dbt models · 73 dbt tests · five reporting marts |
-| Orchestration | two complete five-task Airflow runs · 24/24 reconciliations each |
+| Orchestration | two updated six-task Airflow runs · 24/24 reconciliation and 6/6 freshness rules each |
 | Reporting | three Power BI pages · package and rendered QA passed |
 
 ## Architecture
@@ -43,7 +43,7 @@ deterministic generator + cached FX
                 ▼
       Power BI management report
 
-Airflow orchestrates: preflight ─► ingestion ─► dbt build ─► reconciliation ─► summary
+Airflow orchestrates: preflight ─► ingestion ─► dbt build ─► reconciliation ─► freshness ─► summary
 ```
 
 This is intentionally a split architecture. DEFRA is not loaded into MySQL or
@@ -137,6 +137,9 @@ Package, render, and quantitative checks are documented in the
   unchanged on a second load.
 - **Failure containment:** Airflow retries preflight failures and blocks all
   downstream work before any write when prerequisites fail.
+- **Freshness monitoring:** operational load recency is separated from the
+  fixed historical scenario period; source, FX, and mart coverage are checked
+  without treating historical business dates as stale.
 - **Reporting governance:** Power BI uses aggregate marts at declared grains;
   unsupported cross-mart relationships are avoided.
 
@@ -162,16 +165,18 @@ Package, render, and quantitative checks are documented in the
 | dbt data tests | 73/73 passed |
 | Spend / approval row mismatches | 0 / 0 |
 | Reconciled GBP total | **£1,160,936,638.63** |
-| Airflow live runs | 5/5 tasks · 24/24 checks each · two runs |
+| Airflow live runs | Updated DAG 6/6 tasks · 24/24 reconciliation · 6/6 freshness · two runs |
+| Freshness monitor | 6/6 rules passed · audit rerun produced no duplicates |
 | Power BI mart checks | 10/10 passed |
-| Clone-safe Python regression | 19/19 passed |
+| Clone-safe Python regression | 22/22 passed |
 
 The combined record is in
 [final end-to-end verification](reports/final_end_to_end_verification.md).
 Focused evidence is available for [data quality](reports/data_quality_report.md),
 [MySQL](reports/mysql_live_verification.md),
 [dbt](reports/dbt_live_verification.md), and
-[Airflow](reports/airflow_live_verification.md).
+[Airflow](reports/airflow_live_verification.md). The new monitoring evidence is
+in the [data freshness verification](reports/data_freshness_verification.md).
 
 ## Repository map
 
@@ -247,6 +252,12 @@ against the existing MySQL tables. Verified versions are MySQL 8.0.46, dbt Core
 Airflow runs locally in Docker Desktop/WSL2 and connects to Windows MySQL via
 `host.docker.internal`. The setup script creates an ignored `airflow/.env` and
 does not print generated secrets.
+
+Apply the additive freshness audit tables once before starting the updated DAG:
+
+```powershell
+Get-Content .\sql\ddl\freshness_monitoring.sql | mysql -u spend_app -p enterprise_spend
+```
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\setup_airflow_env.ps1

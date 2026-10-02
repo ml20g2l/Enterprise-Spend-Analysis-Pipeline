@@ -33,9 +33,9 @@ flowchart LR
 | Component | Implemented responsibility |
 |---|---|
 | Python | DEFRA profiling; deterministic fictional data generation; cached historical FX matching; hard-rule validation and quarantine; idempotent MySQL loading. |
-| MySQL 8 | Seven fictional/FX raw tables, two audit fact tables, and one load-run control table. No DEFRA table is loaded. |
+| MySQL 8 | Seven fictional/FX raw tables, two audit fact tables, one load-run control table, and two freshness audit tables. No DEFRA table is loaded. |
 | dbt Core | Seven staging views, five intermediate views, five mart tables, and 73 data tests for the fictional scenario. |
-| Airflow | A local Docker/WSL2 five-task workflow: preflight, ingestion, dbt build, reconciliation, and summary. It does not execute DDL. |
+| Airflow | A local Docker/WSL2 six-task workflow: preflight, ingestion, dbt build, reconciliation, freshness monitoring, and summary. It does not execute DDL. |
 | Power BI | Three pages backed by five dbt marts. It contains fictional corporate analysis only. |
 
 ## Controls
@@ -47,6 +47,8 @@ flowchart LR
   not from the presence of a contract number alone.
 - Airflow serialises writes, stops downstream tasks on failure, and reconciles
   counts and totals after dbt completes.
+- Freshness checks separate current load recency from completeness of the fixed
+  historical scenario and block publication when a rule fails.
 - Credentials are supplied through ignored local environment files or secure
   prompts and are not stored in the repository.
 
