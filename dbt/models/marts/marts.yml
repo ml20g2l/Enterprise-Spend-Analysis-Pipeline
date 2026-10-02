@@ -2,22 +2,140 @@ version: 2
 
 models:
   - name: mart_department_spend
-    description: "Grain: one fictional department; spend and contract-compliance summary."
+    description: "Grain: one fictional department for the full analysis period. Provides spend, vendor coverage, and contract-compliance measures."
     columns:
       - name: department_id
+        description: "Scenario-scoped department business identifier."
         tests: [unique, not_null]
+      - name: department_name
+        description: "Fictional department display name."
+      - name: cost_centre
+        description: "Fictional cost-centre code assigned to the department."
+      - name: expense_count
+        description: "Number of fictional expenses assigned to the department."
+      - name: amount_gbp
+        description: "Total converted spend in GBP, rounded to two decimal places at expense grain before aggregation."
+      - name: avg_expense_gbp
+        description: "Mean converted GBP amount per fictional expense."
+      - name: vendor_count
+        description: "Distinct vendors used by the department."
+      - name: compliant_expense_count
+        description: "Expenses with a compliant submitted or master-matched contract."
+      - name: contract_compliance_pct
+        description: "Compliant expense count divided by expense count, expressed as a percentage."
       - name: record_origin
+        description: "Source boundary label. This mart must contain only synthetic_fictional_company."
         tests:
           - accepted_values:
               values: ['synthetic_fictional_company']
+      - name: is_synthetic
+        description: "Boolean source label. This mart contains fictional scenario data only."
+
   - name: mart_vendor_performance
-    description: "Grain: one fictional vendor; spend, compliance, risk and survey measures."
+    description: "Grain: one fictional vendor for the full analysis period. Provides spend, compliance, risk, and available satisfaction measures."
     columns:
       - name: vendor_id
+        description: "Scenario-scoped vendor business identifier."
         tests: [unique, not_null]
+      - name: vendor_name
+        description: "Fictional vendor display name."
+      - name: country
+        description: "Generated vendor country used for scenario segmentation."
+      - name: primary_category
+        description: "Primary spend category assigned in the fictional vendor master."
+      - name: risk_tier
+        description: "Generated Low, Medium, or High vendor risk tier."
+      - name: expense_count
+        description: "Number of fictional expenses assigned to the vendor."
+      - name: amount_gbp
+        description: "Total converted spend for the vendor in GBP."
+      - name: avg_expense_gbp
+        description: "Mean converted GBP amount per vendor expense."
+      - name: compliant_expense_count
+        description: "Vendor expenses with a compliant contract result."
+      - name: contract_compliance_pct
+        description: "Compliant expense count divided by vendor expense count, expressed as a percentage."
+      - name: response_count
+        description: "Number of fictional satisfaction responses received for the vendor. Null when no response exists."
+      - name: avg_overall_rating
+        description: "Mean overall satisfaction rating on the generated 1-to-5 scale."
+      - name: avg_delivery_rating
+        description: "Mean delivery satisfaction rating on the generated 1-to-5 scale."
+      - name: avg_quality_rating
+        description: "Mean quality satisfaction rating on the generated 1-to-5 scale."
+      - name: avg_support_rating
+        description: "Mean support satisfaction rating on the generated 1-to-5 scale."
+      - name: record_origin
+        description: "Source boundary label for the fictional corporate scenario."
+      - name: is_synthetic
+        description: "Boolean source label. This mart contains fictional scenario data only."
+
   - name: mart_contract_compliance
-    description: "Grain: month, department, spend category and compliance status for fictional expenses."
+    description: "Grain: spend month, department, spend category, contract-compliance status, and compliance flag for fictional expenses."
+    columns:
+      - name: spend_month
+        description: "First calendar day of the expense month."
+      - name: department_id
+        description: "Scenario-scoped department business identifier."
+      - name: spend_category
+        description: "Generated expense category used for contract matching."
+      - name: contract_compliance_status
+        description: "Detailed result from submitted-contract and contract-master matching."
+      - name: is_contract_compliant
+        description: "Boolean result derived from a valid submitted or alternate master contract match."
+      - name: expense_count
+        description: "Number of expenses in the mart grain."
+      - name: amount_gbp
+        description: "Total converted GBP amount in the mart grain."
+      - name: vendor_count
+        description: "Distinct vendors represented in the mart grain."
+      - name: record_origin
+        description: "Source boundary label for the fictional corporate scenario."
+      - name: is_synthetic
+        description: "Boolean source label. This mart contains fictional scenario data only."
+
   - name: mart_approval_performance
-    description: "Grain: expense month and department; fictional approval speed and SLA measures."
+    description: "Grain: expense month and department. Provides fictional approval duration, request-to-payment duration, and 72-hour approval SLA measures."
+    columns:
+      - name: spend_month
+        description: "First calendar day of the related expense month."
+      - name: department_id
+        description: "Scenario-scoped department business identifier."
+      - name: approval_request_count
+        description: "Number of complete fictional approval workflows in the mart grain."
+      - name: avg_approval_cycle_hours
+        description: "Mean hours from purchase request to finance approval."
+      - name: avg_request_to_payment_hours
+        description: "Mean hours from purchase request to payment."
+      - name: sla_breach_count
+        description: "Approval workflows where request-to-finance duration exceeds the configured 72-hour SLA."
+      - name: sla_breach_pct
+        description: "SLA breach count divided by approval request count, expressed as a percentage."
+      - name: record_origin
+        description: "Source boundary label for the fictional corporate scenario."
+      - name: is_synthetic
+        description: "Boolean source label. This mart contains fictional scenario data only."
+
   - name: mart_monthly_currency_spend
-    description: "Grain: expense month and original currency; original and GBP spend exposure."
+    description: "Grain: expense month and original currency. Provides original-currency exposure and reconciled GBP spend for fictional expenses."
+    columns:
+      - name: spend_month
+        description: "First calendar day of the expense month."
+      - name: original_currency
+        description: "ISO currency code recorded on the fictional expense: GBP, EUR, or USD."
+      - name: expense_count
+        description: "Number of fictional expenses in the month and currency."
+      - name: original_amount
+        description: "Total amount in the original currency. Values from different currencies are never combined in one row."
+      - name: amount_gbp
+        description: "Total converted GBP amount in the mart grain."
+      - name: avg_fx_rate_to_gbp
+        description: "Mean applied GBP-per-unit rate across expenses in the mart grain."
+      - name: earliest_fx_rate_date
+        description: "Earliest reference-rate date applied in the mart grain."
+      - name: latest_fx_rate_date
+        description: "Latest reference-rate date applied in the mart grain."
+      - name: record_origin
+        description: "Source boundary label for the fictional corporate scenario."
+      - name: is_synthetic
+        description: "Boolean source label. This mart contains fictional scenario data only."

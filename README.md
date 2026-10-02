@@ -56,6 +56,10 @@ See the implemented [architecture](docs/architecture.md),
 [orchestration design](docs/orchestration.md), and
 [Power BI model](docs/powerbi_model.md).
 
+For a single technical narrative across data analysis, analytics engineering,
+and data engineering, see the
+[portfolio project report](docs/project_portfolio_report.md).
+
 ## Business findings
 
 ### Real DEFRA data

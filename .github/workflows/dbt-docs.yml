@@ -1,0 +1,131 @@
+name: Publish dbt documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/dbt-docs.yml"
+      - "config/**"
+      - "data/raw/fx_rates/**"
+      - "dbt/**"
+      - "requirements-dbt.txt"
+      - "requirements-mysql.txt"
+      - "scripts/validate_dbt_docs_site.py"
+      - "sql/ddl/phase3_mysql.sql"
+      - "src/ingestion/**"
+      - "src/synthetic/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      mysql:
+        image: mysql:8.0.46
+        # These run-scoped credentials exist only inside the disposable service.
+        env:
+          MYSQL_ROOT_PASSWORD: ci_root_${{ github.run_id }}
+          MYSQL_DATABASE: enterprise_spend
+          MYSQL_USER: spend_app
+          MYSQL_PASSWORD: ci_app_${{ github.run_id }}
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -pci_root_${{ github.run_id }}"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=12
+
+    env:
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_PORT: "3306"
+      MYSQL_DATABASE: enterprise_spend
+      MYSQL_USER: spend_app
+      MYSQL_PASSWORD: ci_app_${{ github.run_id }}
+      DBT_MYSQL_HOST: 127.0.0.1
+      DBT_MYSQL_PORT: "3306"
+      DBT_MYSQL_DATABASE: enterprise_spend
+      DBT_MYSQL_USER: spend_app
+      DBT_MYSQL_PASSWORD: ci_app_${{ github.run_id }}
+      DBT_SEND_ANONYMOUS_USAGE_STATS: "false"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements-mysql.txt
+            requirements-dbt.txt
+
+      - name: Install pipeline and dbt dependencies
+        run: python -m pip install -r requirements-mysql.txt -r requirements-dbt.txt
+
+      - name: Generate deterministic offline inputs
+        run: python -m src.synthetic.generate_phase3 --offline
+
+      - name: Create schema and verify idempotent loading
+        run: >-
+          python -m src.ingestion.load_mysql
+          --project-root .
+          --apply-ddl
+          --verify-idempotency
+
+      - name: Build and test dbt project
+        run: >-
+          dbt build
+          --project-dir dbt
+          --profiles-dir dbt
+          --threads 1
+          --no-use-colors
+
+      - name: Generate dbt documentation
+        run: >-
+          dbt docs generate
+          --project-dir dbt
+          --profiles-dir dbt
+          --no-use-colors
+
+      - name: Stage minimal static site
+        run: |
+          mkdir -p site
+          cp dbt/target/index.html site/index.html
+          cp dbt/target/manifest.json site/manifest.json
+          cp dbt/target/catalog.json site/catalog.json
+
+      - name: Validate public documentation artifact
+        run: python scripts/validate_dbt_docs_site.py --site-dir site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

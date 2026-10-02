@@ -2,20 +2,29 @@ version: 2
 
 sources:
   - name: phase3_raw
-    description: "Phase 3 MySQL raw tables for the fictional corporate scenario. No DEFRA rows are present."
+    description: "Phase 3 MySQL raw tables for the deterministic fictional corporate scenario. No DEFRA rows are present."
     schema: "{{ env_var('DBT_MYSQL_DATABASE', 'enterprise_spend') }}"
     tables:
       - name: raw_synthetic_department
+        description: "One fictional department with source and scenario lineage."
       - name: raw_synthetic_vendor
+        description: "One fictional vendor with category, country, currency, and generated risk attributes."
       - name: raw_synthetic_contract
+        description: "One fictional vendor contract with approved category, value, and validity dates."
       - name: raw_synthetic_expense
+        description: "One fictional expense before contract matching and historical FX conversion."
       - name: raw_fx_rate
+        description: "One cached Frankfurter base/GBP rate observation for one available date."
       - name: raw_synthetic_approval_event
+        description: "One fictional workflow event. Each expense is expected to have four ordered events."
       - name: raw_synthetic_vendor_satisfaction
+        description: "One fictional vendor satisfaction response on generated 1-to-5 rating scales."
 
   - name: phase3_audit
-    description: "Previously validated Python outputs used only as reconciliation baselines, never as dbt transformation inputs."
+    description: "Validated Python facts used only as independent reconciliation baselines. dbt models do not use them as transformation inputs."
     schema: "{{ env_var('DBT_MYSQL_DATABASE', 'enterprise_spend') }}"
     tables:
       - name: fact_synthetic_spend
+        description: "One Python-transformed fictional expense with contract and applied FX lineage."
       - name: fact_synthetic_approval
+        description: "One Python-derived approval workflow per fictional expense."

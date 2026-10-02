@@ -16,6 +16,9 @@ dbt/.user.yml
 dbt_packages/
 .DS_Store
 
+# Personal study and interview notes are not public portfolio deliverables.
+notes/
+
 # Local source-drop duplicates. The controlled copies live in data/raw/defra/.
 /*.csv
 
